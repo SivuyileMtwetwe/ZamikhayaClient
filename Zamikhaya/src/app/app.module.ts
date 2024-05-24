@@ -25,6 +25,8 @@ import { AppRoutingModule } from './app-routing.module'; // Import AppRoutingMod
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    RouterModule,
+  
     AppRoutingModule // Add AppRoutingModule here
   ],
   providers: [],
