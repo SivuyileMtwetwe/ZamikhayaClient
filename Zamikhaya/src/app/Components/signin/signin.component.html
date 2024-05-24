@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Sign In</mat-card-title>
+    <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Email Address</mat-label>
+        <input matInput formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Sign In</button>
+    </form>
+  </mat-card>
+  
