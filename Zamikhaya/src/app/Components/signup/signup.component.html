@@ -1,31 +1,26 @@
-<mat-card>
-    <mat-card-title>Sign Up</mat-card-title>
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>Sign Up</h1>
+    <p>Create an account</p>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>Full Name</mat-label>
-        <input matInput formControlName="fullName" required>
+      <mat-form-field appearance="fill" class="custom-form-field">
+        <mat-label class="persistent-label">First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="Enter first name" required>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Identity Number</mat-label>
-        <input matInput formControlName="identityNumber" required>
+      <mat-form-field appearance="fill" class="custom-form-field">
+        <mat-label class="persistent-label">Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Enter last name" required>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Mobile Number</mat-label>
-        <input matInput formControlName="mobileNumber" required>
+      <mat-form-field appearance="fill" class="custom-form-field">
+        <mat-label class="persistent-label">Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter email address" required>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email Address</mat-label>
-        <input matInput formControlName="email" required>
+      <mat-form-field appearance="fill" class="custom-form-field">
+        <mat-label class="persistent-label">Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Enter password" required>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Confirm Password</mat-label>
-        <input matInput type="password" formControlName="confirmPassword" required>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Sign Up</button>
+      <button mat-raised-button color="primary" type="submit" class="auth-button">Sign Up</button>
     </form>
-  </mat-card>
-  
+    <div class="logo-container"></div>
+  </div>
+</div>

@@ -1,15 +1,19 @@
-<mat-card>
-    <mat-card-title>Sign In</mat-card-title>
+<div class="auth-container">
+  <div class="auth-card">
+    <h1>Sign In</h1>
     <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>Email Address</mat-label>
-        <input matInput formControlName="email" required>
+      <mat-form-field appearance="outline" class="custom-form-field">
+        <mat-label class="persistent-label">Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter email address" required>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" required>
+      <mat-form-field appearance="outline" class="custom-form-field">
+        <mat-label class="persistent-label">Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Enter password" required>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Sign In</button>
+      <button mat-raised-button color="primary" type="submit" class="auth-button">Sign In</button>
+      <div class="or-divider">OR</div>
+      <button mat-button color="primary" routerLink="/signup" class="auth-link">Register</button>
     </form>
-  </mat-card>
-  
+    <div class="logo-container"></div>
+  </div>
+</div>
