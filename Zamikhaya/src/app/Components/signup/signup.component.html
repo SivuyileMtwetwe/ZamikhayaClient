@@ -1,26 +1,36 @@
-<div class="auth-container">
-  <div class="auth-card">
-    <h1>Sign Up</h1>
-    <p>Create an account</p>
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill" class="custom-form-field">
-        <mat-label class="persistent-label">First Name</mat-label>
-        <input matInput formControlName="firstName" placeholder="Enter first name" required>
+<div class="container">
+  <img src="assets/zam_ikhaya-removebg-preview (1).png" alt="Logo" class="logo">
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm" class="signup-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput placeholder="Enter your full name" name="fullName" ngModel required>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="custom-form-field">
-        <mat-label class="persistent-label">Last Name</mat-label>
-        <input matInput formControlName="lastName" placeholder="Enter last name" required>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Identity Number</mat-label>
+        <input matInput placeholder="Enter your identity number" name="identityNumber" ngModel required>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="custom-form-field">
-        <mat-label class="persistent-label">Email</mat-label>
-        <input matInput formControlName="email" placeholder="Enter email address" required>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput placeholder="Enter your mobile number" name="mobileNumber" ngModel required>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="custom-form-field">
-        <mat-label class="persistent-label">Password</mat-label>
-        <input matInput type="password" formControlName="password" placeholder="Enter password" required>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" placeholder="Enter your email address" name="email" ngModel required>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" class="auth-button">Sign Up</button>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Enter your password" name="password" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" placeholder="Confirm your password" name="confirmPassword" ngModel required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Sign Up</button>
     </form>
-    <div class="logo-container"></div>
-  </div>
 </div>

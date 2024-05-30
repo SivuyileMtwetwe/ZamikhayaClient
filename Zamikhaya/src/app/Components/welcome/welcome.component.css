@@ -1,0 +1,61 @@
+.welcome-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+  }
+  
+  .text-container {
+    margin-bottom: 20px;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+  }
+  
+  .get-started-button {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+  
+  .get-started-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+  }
+  
+  .subtitle {
+    position: absolute;
+    bottom: 20px;
+    left: 140px;
+    font-size: 12px;
+  }
+  
