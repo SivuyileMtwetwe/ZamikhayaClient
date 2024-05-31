@@ -19,14 +19,18 @@
 
 mat-form-field {
   width: 100%;
-  margin-bottom: 15px;
+  margin: 15px;
 }
+
+
 
 button {
   width: 100%;
   max-width: 200px;
   margin-top: 20px;
 }
+
+
 
 .background-image {
   width: 100%;
@@ -52,4 +56,9 @@ button {
   text-align: center;
   color: white;
   z-index: 2;
+}
+
+img{
+  width: 200px;
+  height: auto;
 }

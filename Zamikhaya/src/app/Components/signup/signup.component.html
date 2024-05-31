@@ -1,6 +1,7 @@
 <div class="container">
-  <img src="assets/zam_ikhaya-removebg-preview (1).png" alt="Logo" class="logo">
+  
     <form (ngSubmit)="onSignup()" #signupForm="ngForm" class="signup-form">
+      <img src="assets/zam_ikhaya-removebg-preview.png" alt="Logo" class="logo">
       <mat-form-field appearance="fill">
         <mat-label>Full Name</mat-label>
         <input matInput placeholder="Enter your full name" name="fullName" ngModel required>
@@ -34,3 +35,4 @@
       <button mat-raised-button color="primary" type="submit">Sign Up</button>
     </form>
 </div>
+ 

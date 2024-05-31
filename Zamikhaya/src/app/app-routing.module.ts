@@ -1,15 +1,18 @@
+// src/app/app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './Components/landing/landing.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { IntroComponent } from './components/intro/intro.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'intro', component: IntroComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
-  { path: 'welcome', component: WelcomeComponent }
+  { path: '**', redirectTo: '/welcome' }
 ];
 
 @NgModule({

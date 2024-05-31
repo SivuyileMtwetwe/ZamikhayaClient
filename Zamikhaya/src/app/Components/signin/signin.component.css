@@ -29,3 +29,8 @@ button {
   max-width: 200px;
   margin-top: 20px;
 }
+
+img{
+  width: 200px;
+  height: auto;
+}
