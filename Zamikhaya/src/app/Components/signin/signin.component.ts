@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class SigninComponent {
 
   onSignin() {
-    // Add logic for signing in a user
     console.log('Signin form submitted');
   }
 }
