@@ -1,0 +1,16 @@
+<!-- src/app/intro/intro.component.html -->
+<div class="intro-container">
+  <img src="assets/Rectangle 30.png" alt="Background" class="background-image">
+  <div class="intro-overlay">
+    <h1>{{ slides[currentSlide].title }}</h1>
+    <p>{{ slides[currentSlide].subtitle }}</p>
+    <div class="intro-image">
+      <img [src]="slides[currentSlide].image" alt="Intro">
+    </div>
+    <p class="intro-text" [innerHTML]="slides[currentSlide].description"></p>
+    <div class="intro-navigation">
+      <button mat-button class="nav-button" (click)="nextSlide()">&rarr;</button>
+    </div>
+    <button mat-button class="skip-button" (click)="skipIntro()">Skip</button>
+  </div>
+</div>

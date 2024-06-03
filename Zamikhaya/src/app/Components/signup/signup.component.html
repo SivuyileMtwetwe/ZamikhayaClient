@@ -1,0 +1,38 @@
+<div class="container">
+  
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm" class="signup-form">
+      <img src="assets/zam_ikhaya-removebg-preview.png" alt="Logo" class="logo">
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput placeholder="Enter your full name" name="fullName" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Identity Number</mat-label>
+        <input matInput placeholder="Enter your identity number" name="identityNumber" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput placeholder="Enter your mobile number" name="mobileNumber" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" placeholder="Enter your email address" name="email" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Enter your password" name="password" ngModel required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" placeholder="Confirm your password" name="confirmPassword" ngModel required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Sign Up</button>
+    </form>
+</div>
+ 
