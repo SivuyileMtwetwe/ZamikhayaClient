@@ -1,8 +1,8 @@
 // src/app/app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { IntroComponent } from './components/intro/intro.component';
+import { WelcomeComponent } from './Components/welcome/welcome.component';
+import { IntroComponent } from './Components/intro/intro.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
 
