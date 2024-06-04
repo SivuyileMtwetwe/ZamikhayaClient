@@ -65,3 +65,12 @@ button[mat-raised-button] {
 button[mat-raised-button]:hover {
   background-color: #303f9f;
 }
+
+.signin-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signin-actions button {
+  margin: 10px;
+}
