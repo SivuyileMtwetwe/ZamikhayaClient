@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { LandingComponent } from './Components/landing/landing.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { IntroComponent } from './components/intro/intro.component';
+import { WelcomeComponent } from './Components/welcome/welcome.component';
+import { IntroComponent } from './Components/intro/intro.component';
 
 @NgModule({
   declarations: [
