@@ -10,6 +10,6 @@ export class LandingComponent {
   constructor(private router: Router) { }
 
   navigateToWelcome() {
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/intro']);
   }
 }
