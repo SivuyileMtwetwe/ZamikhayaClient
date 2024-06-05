@@ -57,15 +57,6 @@ button {
   margin-top: 20px;
 }
 
-button[mat-raised-button] {
-  background-color: #3f51b5;
-  color: white;
-}
-
-button[mat-raised-button]:hover {
-  background-color: #303f9f;
-}
-
 .signin-actions {
   display: flex;
   justify-content: space-between;
@@ -74,3 +65,6 @@ button[mat-raised-button]:hover {
 .signin-actions button {
   margin: 10px;
 }
+
+
+

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-signin',
@@ -7,7 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SigninComponent {
 
+  constructor(private _location: Location) { }
   onSignin() {
     console.log('Signin form submitted');
+  }
+
+  goBack(){
+    this._location.back()
   }
 }

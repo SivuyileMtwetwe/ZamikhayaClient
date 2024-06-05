@@ -12,6 +12,7 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { LandingComponent } from './Components/landing/landing.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { IntroComponent } from './Components/intro/intro.component';
+import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { IntroComponent } from './Components/intro/intro.component';
     SigninComponent,
     LandingComponent,
     WelcomeComponent,
-    IntroComponent
+    IntroComponent,
+    PasswordRecoveryComponent
   ],
   imports: [
     BrowserModule,

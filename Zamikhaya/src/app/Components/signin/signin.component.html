@@ -1,8 +1,9 @@
 <div class="container">
   
     <form (ngSubmit)="onSignin()" #signinForm="ngForm" class="signin-form">
+      <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="goBack()"><i class="fa-solid fa-circle-xmark"></i></a>
       <img src="assets/zam_ikhaya-removebg-preview.png" alt="Logo" class="logo">
-      <!-- <button mat-raised-button color="primary" type="submit">Sign Up</button> -->
+
       <mat-form-field appearance="fill">
         <mat-label>Email Address</mat-label>
         <input matInput type="email" placeholder="Enter your email address" name="email" ngModel required>
@@ -12,12 +13,11 @@
         <mat-label>Password</mat-label>
         <input matInput type="password" placeholder="Enter your password" name="password" ngModel required>
       </mat-form-field>
-<!-- 
-      <button mat-raised-button color="primary" type="submit">Sign In</button> -->
 
       <div class="signin-actions">
         <button mat-button >Sign In</button>
-        <button mat-button routerLink="/signup">Sign Up</button>  <!-- Add this button for Sign Up -->
+        <button mat-button routerLink="/signup">Sign Up</button> 
+        <button routerLink="/password-recovery">Forgot Password?</button>
       </div>
       
     </form>

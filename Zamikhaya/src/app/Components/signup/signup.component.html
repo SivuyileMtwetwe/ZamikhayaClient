@@ -1,6 +1,7 @@
 <div class="container">
   
     <form (ngSubmit)="onSignup()" #signupForm="ngForm" class="signup-form">
+      <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="goBack()"><i class="fa-solid fa-circle-xmark"></i></a>
       <img src="assets/zam_ikhaya-removebg-preview.png" alt="Logo" class="logo">
       <mat-form-field appearance="fill">
         <mat-label>Full Name</mat-label>
