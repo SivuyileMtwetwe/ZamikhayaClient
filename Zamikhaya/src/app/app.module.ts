@@ -14,7 +14,7 @@ import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { IntroComponent } from './Components/intro/intro.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
-
+import { HeaderComponent } from './Components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,9 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
     WelcomeComponent,
     IntroComponent,
     PasswordRecoveryComponent,
-    HomepageComponent
+    HomepageComponent,
+    NavbarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
