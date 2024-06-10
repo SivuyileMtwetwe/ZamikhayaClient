@@ -14,6 +14,12 @@ import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { IntroComponent } from './Components/intro/intro.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
+import { FilteringComponent } from './Components/filtering/filtering.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ProfileComponent } from './Components/profile/profile.component';
+import { MapviewComponent } from './Components/mapview/mapview.component';
+import { FavouriteComponent } from './Components/favourite/favourite.component';
+import { FeaturedComponent } from './Components/featured/featured.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
     WelcomeComponent,
     IntroComponent,
     PasswordRecoveryComponent,
-    HomepageComponent
+    HomepageComponent,
+    FilteringComponent,
+    NavbarComponent,
+    ProfileComponent,
+    MapviewComponent,
+    FavouriteComponent,
+    FeaturedComponent
   ],
   imports: [
     BrowserModule,
