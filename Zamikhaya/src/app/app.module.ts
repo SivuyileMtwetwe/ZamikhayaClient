@@ -14,6 +14,8 @@ import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { IntroComponent } from './Components/intro/intro.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
+import { MessageComponent } from './Components/message/message.component';
+// import { MessageComponent } from './message/message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,7 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
     IntroComponent,
     PasswordRecoveryComponent,
     HomepageComponent,
+    MessageComponent,
     
   ],
   imports: [
