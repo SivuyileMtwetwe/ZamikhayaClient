@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'password-recovery', component: PasswordRecoveryComponent },
+  { path: 'featured', component:FeaturedComponent},
   { path: 'homepage', component:HomepageComponent},
   { path: '**', redirectTo: '' }
 ];

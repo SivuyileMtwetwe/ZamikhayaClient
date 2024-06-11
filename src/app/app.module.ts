@@ -16,6 +16,7 @@ import { PasswordRecoveryComponent } from './Components/password-recovery/passwo
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SettingsComponent } from './Components/settings/settings.component';
+import { FeaturedComponent } from './Components/featured/featured.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { SettingsComponent } from './Components/settings/settings.component';
     PasswordRecoveryComponent,
     HomepageComponent,
     NavbarComponent,
-    SettingsComponent
+    SettingsComponent,
+    FeaturedComponent
   ],
   imports: [
     BrowserModule,
