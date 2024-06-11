@@ -7,6 +7,7 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component'; // Import the PasswordRecoveryComponent
 import { HomepageComponent } from './Components/homepage/homepage.component';
+import { FeaturedComponent } from './Components/featured/featured.component';
 
 
 const routes: Routes = [
