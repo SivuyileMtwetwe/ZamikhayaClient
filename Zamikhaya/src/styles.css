@@ -1,4 +1,8 @@
-/* Global styles for the background image */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles for the background image
 body {
   background-image: url('assets/Rectangle 30.png');
   background-size: cover;
@@ -17,7 +21,7 @@ body {
   color: white;
 }
 
-/* Ensure the overlay elements are styled properly */
+ Ensure the overlay elements are styled properly 
 .overlay {
   position: relative;
   z-index: 2;
@@ -29,7 +33,6 @@ body {
   padding: 0;
 }
 
-/* Additional styles for specific components */
 .container {
   display: flex;
   justify-content: center;
@@ -66,5 +69,5 @@ button {
   margin: 10px;
 }
 
-
+ */
 

@@ -14,17 +14,6 @@ import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { IntroComponent } from './Components/intro/intro.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
-<<<<<<< HEAD
-import { HeaderComponent } from './Components/header/header.component';
-=======
-import { FilteringComponent } from './Components/filtering/filtering.component';
-import { NavbarComponent } from './Components/navbar/navbar.component';
-import { ProfileComponent } from './Components/profile/profile.component';
-import { MapviewComponent } from './Components/mapview/mapview.component';
-import { FavouriteComponent } from './Components/favourite/favourite.component';
-import { FeaturedComponent } from './Components/featured/featured.component';
-
->>>>>>> bfb7885e5a3bb454cfe8c719e783e8bec238395e
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,17 +24,7 @@ import { FeaturedComponent } from './Components/featured/featured.component';
     IntroComponent,
     PasswordRecoveryComponent,
     HomepageComponent,
-<<<<<<< HEAD
-    NavbarComponent,
-    HeaderComponent
-=======
-    FilteringComponent,
-    NavbarComponent,
-    ProfileComponent,
-    MapviewComponent,
-    FavouriteComponent,
-    FeaturedComponent
->>>>>>> bfb7885e5a3bb454cfe8c719e783e8bec238395e
+    
   ],
   imports: [
     BrowserModule,
