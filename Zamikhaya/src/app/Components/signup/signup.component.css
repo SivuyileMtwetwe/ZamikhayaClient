@@ -1,4 +1,4 @@
-.signup-container {
+/* .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +46,7 @@ a{
   width: 100%;
   max-width: 200px;
   margin-top: 20px;
-} */
+} 
 
 
 
@@ -96,4 +96,4 @@ a{
   a:hover{
     box-shadow: -6px -6px 10px #f9f9f9,
     6px 6px 10px #00000026
-  }
+  } */
