@@ -16,6 +16,7 @@ import { PasswordRecoveryComponent } from './Components/password-recovery/passwo
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { MessageComponent } from './Components/message/message.component';
 // import { MessageComponent } from './message/message.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +28,8 @@ import { MessageComponent } from './Components/message/message.component';
     PasswordRecoveryComponent,
     HomepageComponent,
     MessageComponent,
-    
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
@@ -38,6 +39,7 @@ import { MessageComponent } from './Components/message/message.component';
     MatFormFieldModule,
     AppRoutingModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
