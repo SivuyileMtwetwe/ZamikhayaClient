@@ -31,6 +31,7 @@ import { FeaturedComponent } from './Components/featured/featured.component';
     SettingsComponent,
     FeaturedComponent
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
@@ -40,6 +41,7 @@ import { FeaturedComponent } from './Components/featured/featured.component';
     MatFormFieldModule,
     AppRoutingModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
