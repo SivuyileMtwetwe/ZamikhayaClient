@@ -1,4 +1,4 @@
-.scrollbar-w-2::-webkit-scrollbar {
+/* .scrollbar-w-2::-webkit-scrollbar {
     width: 0.25rem;
     height: 0.25rem;
   }
@@ -17,4 +17,48 @@
   
   .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
     border-radius: 0.25rem;
+  } */
+
+  .message-container {
+    border: 1px solid #ccc;
+    padding: 16px;
+    max-width: 400px;
+    margin: 0 auto;
   }
+  
+  .message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .sender-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .sender-name {
+    font-weight: bold;
+  }
+  
+  .message-body {
+    display: flex;
+    align-items: center;
+  }
+  
+  textarea {
+    flex: 1;
+    padding: 8px;
+    margin-right: 8px;
+  }
+  
+  button {
+    padding: 8px 16px;
+  }
+  
+  .message-display {
+    margin-top: 16px;
+  }
+  

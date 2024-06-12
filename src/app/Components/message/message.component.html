@@ -1,4 +1,9 @@
-<p>message works!</p>
+<!-- <p>message works!</p>
+<!-- src/app/message/message.component.html -->
+<!-- <div [ngClass]="cssClass" *ngIf="message">
+    {{ message }}
+  </div>
+  
 <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
     <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
        <div class="relative flex items-center space-x-4">
@@ -61,7 +66,7 @@
                 <div>
                    <span class="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
                       Check the line above (it ends with a # so, I'm running it as root )
-                      <!-- <pre># npm install -g @vue/devtools</pre> -->
+                  
                    </span>
                 </div>
              </div>
@@ -159,7 +164,7 @@
     </div>
  </div>
  
- <!-- <style>
+ <style>
  .scrollbar-w-2::-webkit-scrollbar {
    width: 0.25rem;
    height: 0.25rem;
@@ -180,9 +185,26 @@
  .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
    border-radius: 0.25rem;
  } -->
- <!-- </style> -->
+ <!-- </style>
  
  <script>
      const el = document.getElementById('messages')
      el.scrollTop = el.scrollHeight
- </script>
+ </script> -->
+<!--  
+ <app-message></app-message> -->
+
+ <div class="message-container">
+   <div class="message-header">
+     <img [src]="senderPicture" alt="Sender Picture" class="sender-picture">
+     <span class="sender-name">{{ sender.Name }}</span>
+   </div>
+   <div class="message-body">
+     <textarea [(ngModel)]="messageText" placeholder="Type your message..."></textarea>
+     <button (click)="send.Message()">Send</button>
+   </div>
+   <div class="message-display">
+     <p *ngFor="let msg of messages">{{ msg }}</p>
+   </div>
+ </div>
+ 

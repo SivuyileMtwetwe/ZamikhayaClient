@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageComponent } from './Components/message/message.component';
 
 @Component({
   selector: 'app-root',
