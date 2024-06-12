@@ -11,7 +11,6 @@ export class SignupComponent {
   constructor(private _location: Location) { }
 
   onSignup() {
-    // Add logic for signing up a user
     console.log('Signup form submitted');
   }
 

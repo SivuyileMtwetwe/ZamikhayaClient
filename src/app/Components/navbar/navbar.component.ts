@@ -1,4 +1,4 @@
-// navbar.component.ts
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,6 @@ export class NavbarComponent {
   constructor(private router: Router) {}
 
   signOut() {
-    // Add your sign out logic here
     console.log('User signed out');
     this.router.navigate(['/homepage']);
   }

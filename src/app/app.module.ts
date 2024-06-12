@@ -17,6 +17,7 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
+import { FilteringComponent } from './Components/filtering/filtering.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { FeaturedComponent } from './Components/featured/featured.component';
     HomepageComponent,
     NavbarComponent,
     SettingsComponent,
-    FeaturedComponent
+    FeaturedComponent,
+    FilteringComponent
   ],
 
   imports: [
