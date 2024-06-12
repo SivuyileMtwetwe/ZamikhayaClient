@@ -6,18 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent {
-  senderName: string = 'John Doe';
-  senderPicture: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOYV3Los6QjSxSDPvlF51vupM-y3Xp0P-fqLTqnQWoRGPCcsECwdkh6XSJ1soYetHi0IQ&usqp=CAU';
+  senderName: string = 'Tenant';
+  senderPicture: string = 'https://via.placeholder.com/40';
+  receiverName: string = 'Landlord';
+  receiverPicture: string = 'https://via.placeholder.com/40';
   messageText: string = '';
   messages: string[] = [];
-sender: any;
-send: any;
 
   sendMessage() {
     if (this.messageText.trim()) {
-      this.messages.push(this.messageText);
+      this.messages.push(`${this.senderName}: ${this.messageText}`);
       this.messageText = '';
     }
   }
 }
+
 
