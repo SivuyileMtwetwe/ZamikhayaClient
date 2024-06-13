@@ -23,14 +23,14 @@ import { MessageComponent } from './Components/message/message.component';
     AppComponent,
     SignupComponent,
     SigninComponent,
-    LandingComponent,
+    LandingComponent,   
     WelcomeComponent,
     IntroComponent,
     PasswordRecoveryComponent,
     HomepageComponent,
     NavbarComponent,
     SettingsComponent,
-    MessageComponent,
+    MessageComponents,
   ],
 
   imports: [
