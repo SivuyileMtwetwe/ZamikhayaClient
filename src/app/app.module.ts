@@ -30,7 +30,7 @@ import { MessageComponent } from './Components/message/message.component';
     HomepageComponent,
     NavbarComponent,
     SettingsComponent,
-    MessageComponents,
+    MessageComponent, 
   ],
 
   imports: [

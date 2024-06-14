@@ -1,18 +1,34 @@
+<!-- <div class="message-container">
+  <div class="message-header">
+    <img [src]="receiverPicture" alt="Receiver Picture" class="receiver-picture">
+    <span class="receiver-name">{{ receiverName }}</span>
+  </div>
+  <div class="message-body">
+    <textarea [(ngModel)]="messageText" placeholder="Type your message..."></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  <div class="message-display">
+    <div *ngFor="let msg of messages">
+      <p>{{ msg.text }}</p>
+      <small>{{ msg.timestamp }}</small>
+    </div>
+  </div>
+</div> -->
 
-  <div class="message-container">
-   <div class="message-header">
-     <img [src]="senderPicture" alt="Sender Picture" class="sender-picture">
-     <span class="sender-name">{{ senderName }}</span>
-     <img [src]="receiverPicture" alt="Receiver Picture" class="receiver-picture">
-     <span class="receiver-name">{{ receiverName }}</span>
-   </div>
-
-   <div class="message-body">
-     <textarea [(ngModel)]="messageText" placeholder="Type your message..."></textarea>
-     <button (click)="sendMessage()">Send</button>
-   </div>
-   <div class="Display message">
-     <p *ngFor="let msg of messages">{{ msg }}</p>
-   </div>
- </div>
- 
+<div class="message-container" [class.minimized]="isMinimized">
+  <div class="message-header" (click)="toggleMinimize()">
+    <img [src]="receiverPicture" alt="Receiver Picture" class="receiver-picture">
+    <span class="receiver-name">{{ receiverName }}</span>
+    <button class="toggle-button">{{ isMinimized ? 'Maximize' : 'Minimize' }}</button>
+  </div>
+  <div class="message-body" *ngIf="!isMinimized">
+    <textarea [(ngModel)]="messageText" placeholder="Type your message..."></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  <div class="message-display" *ngIf="!isMinimized">
+    <div *ngFor="let msg of messages">
+      <p>{{ msg.text }}</p>
+      <small>{{ msg.timestamp }}</small>
+    </div>
+  </div>
+</div>
