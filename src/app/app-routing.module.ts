@@ -7,8 +7,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
-import { FilteringComponent } from './Components/filtering/filtering.component';
-import { HeaderComponent } from './Components/header/header.component';
+import { OneCardComponent } from './Components/one-card/one-card.component';
 
 
 const routes: Routes = [
@@ -19,8 +18,7 @@ const routes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryComponent },
   { path: 'featured', component:FeaturedComponent},
   { path: 'homepage', component:HomepageComponent},
-  { path: 'filtering', component:FilteringComponent},
-  { path: 'header', component:HeaderComponent},
+  {path: 'one-card', component: OneCardComponent },
   { path: '**', redirectTo: '' }
 ];
 

@@ -17,10 +17,7 @@ import { PasswordRecoveryComponent } from './Components/password-recovery/passwo
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SettingsComponent } from './Components/settings/settings.component';
-import { FeaturedComponent } from './Components/featured/featured.component';
-import { FilteringComponent } from './Components/filtering/filtering.component';
-import { HeaderComponent } from './Components/header/header.component';
-
+import { OneCardComponent } from './Components/one-card/one-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +30,7 @@ import { HeaderComponent } from './Components/header/header.component';
     HomepageComponent,
     NavbarComponent,
     SettingsComponent,
-    FeaturedComponent,
-    FilteringComponent,
-    HeaderComponent
+    OneCardComponent
   ],
 
   imports: [
