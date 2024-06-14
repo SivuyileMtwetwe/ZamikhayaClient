@@ -8,7 +8,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component'; // Import the PasswordRecoveryComponent
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
-
+import {MessageComponent} from './Components/message/message.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
