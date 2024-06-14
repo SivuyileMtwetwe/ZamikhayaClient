@@ -27,7 +27,7 @@ export class FeaturedComponent implements OnInit, OnDestroy {
 
       this.intervalId = setInterval(() => {
         if (scrollAmount >= scrollMax) {
-          scrollAmount = 0;
+          scrollAmount = 10;
         } else {
           scrollAmount += step;
         }
@@ -36,6 +36,6 @@ export class FeaturedComponent implements OnInit, OnDestroy {
           behavior: 'smooth'
         });
       }, 3000);
-    }
+    } 
   }
 }

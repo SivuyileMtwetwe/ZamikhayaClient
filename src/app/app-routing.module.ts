@@ -8,10 +8,14 @@ import { PasswordRecoveryComponent } from './Components/password-recovery/passwo
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { OneCardComponent } from './Components/one-card/one-card.component';
+import { FilteringComponent } from './Components/filtering/filtering.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
+  { path: 'navbar', component: NavbarComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
@@ -19,6 +23,8 @@ const routes: Routes = [
   { path: 'featured', component:FeaturedComponent},
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: OneCardComponent },
+  { path: 'filtering', component:FilteringComponent},
+  { path: 'header', component:HeaderComponent},
   { path: '**', redirectTo: '' }
 ];
 

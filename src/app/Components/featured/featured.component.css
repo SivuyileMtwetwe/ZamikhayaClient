@@ -1,7 +1,8 @@
-/* .carousel {
+.carousel {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    height: 250px;
   }
   
   .carousel-item {
@@ -30,4 +31,4 @@
   }
   
 
-    */
+   
