@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+// 
 
-@Component({
-  selector: 'app-one-card',
-  templateUrl: './one-card.component.html',
-  styleUrl: './one-card.component.css'
-})
-export class OneCardComponent {
-  isLiked = false; // Initially not liked
+// import { Component, OnInit } from '@angular/core';
+// import { Property } from '../Interfaces/property-interface';
+// import { PropertyService } from '../Services/property.service';
 
-  toggleLike() {
-    this.isLiked = !this.isLiked;
-  }
-}
+// @Component({
+//   selector: 'app-property-list',
+//   templateUrl: './one-card.component.html',
+//   styleUrls: ['./one-card.component.css']
+// })
+// export class OneCardComponent implements OnInit {
+//   properties: Property[] = [];
+
+//   constructor(private propertyService: PropertyService) {}
+
+//   ngOnInit() {
+//     this.propertyService.getAllProperty()
+//       .subscribe(Property => {
+//         this.Property = Property;
+//       });
+//   }
+// }
