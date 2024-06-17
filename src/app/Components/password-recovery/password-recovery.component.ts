@@ -1,4 +1,4 @@
-// src/app/password-recovery/password-recovery.component.ts
+
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 
@@ -13,7 +13,6 @@ export class PasswordRecoveryComponent {
 
 
   onSubmit() {
-    // Implement your password recovery logic here
     console.log(`Recovery email sent to ${this.email}`);
   }
   goBack(){
