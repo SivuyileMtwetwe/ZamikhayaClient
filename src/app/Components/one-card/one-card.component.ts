@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Property } from '../../Interfaces/property-interface';
 import { PropertyService } from '../../Services/property.service';
 import { Router } from '@angular/router';
 
@@ -20,19 +19,29 @@ export class OneCardComponent {
     private router: Router
   ) {}
 
-  property: Property[] = [];
-  filteredProperty: Property[] = [];
+  property: any[] = [];
+  filteredProperty: any[] = [];
+
+  ngOnInit(): void {
+    this.getAllProperties();
+  }
 
   getAllProperties(): void {
     this._propertyService.getAllProperties().subscribe({
-      next: (res) => {
-        this.property = res;
-        this.filteredProperty = res
+      next: (properties: any) => {
+        this.property = properties;
+        this.filteredProperty = properties
+        console.log(properties)
       },
+    
     });
   }
 
-  onSelect(_id: string): void {
-    this.router.navigate(['/zam', _id]);
-  }
+  // onSelect(property: any): void {
+  //   this._propertyService.getPropertyById(property.id).subscribe(
+  //     next: (res) => {
+  //       this.property = res;
+        
+  //     },
+  // }
 }

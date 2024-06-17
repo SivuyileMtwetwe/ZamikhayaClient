@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +25,7 @@ import { OneCardComponent } from './Components/one-card/one-card.component';
 import { FilteringComponent } from './Components/filtering/filtering.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { HeaderComponent } from './Components/header/header.component';
+import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,15 +42,19 @@ import { HeaderComponent } from './Components/header/header.component';
     OneCardComponent,
     FilteringComponent,
     FeaturedComponent,
-    HeaderComponent, 
-  
+    HeaderComponent,
+    MessageComponent
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule,HttpClientModule
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    AppRoutingModule,
+    NgFor
   ],
   
   providers: [],
