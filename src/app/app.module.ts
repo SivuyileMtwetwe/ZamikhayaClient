@@ -26,6 +26,7 @@ import { FilteringComponent } from './Components/filtering/filtering.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
+import { NgFor } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
