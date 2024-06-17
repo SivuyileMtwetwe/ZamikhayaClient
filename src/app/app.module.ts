@@ -40,7 +40,7 @@ import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component
     FilteringComponent,
     FeaturedComponent,
     HeaderComponent,
-    MessageComponent
+    MessageComponent,
   ],
 
   imports: [
