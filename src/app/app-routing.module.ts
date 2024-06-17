@@ -11,7 +11,7 @@ import { OneCardComponent } from './Components/one-card/one-card.component';
 import { FilteringComponent } from './Components/filtering/filtering.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
-
+import { MessageComponent } from './Components/message/message.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },

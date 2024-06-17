@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Property } from '../Interfaces/property-interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,11 @@ export class PropertyService {
 
   constructor(private _http: HttpClient) { }
 
-getAllProperties():Observable<Property[]> {
-  return this._http.get<Property[]>(this.apiUrl)
+getAllProperties():Observable<any[]> {
+  return this._http.get<any[]>(this.apiUrl)
 }
 
-  getPropertyById(id: number): Observable<Property> {
-    return this._http.get<Property>(`${this.apiUrl}/${id}`);
+  getPropertyById(id: number): Observable<any> {
+    return this._http.get<any>(`${this.apiUrl}/${id}`);
   }
 }
