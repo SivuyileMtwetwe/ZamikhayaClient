@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PropertyService } from '../../Services/property.service';
-import { Property } from '../../Interfaces/property-interface';
+// import { Property } from '../../Interfaces/property-interface';
 
 @Component({
   selector: 'app-homepage',
@@ -15,20 +15,24 @@ export class HomepageComponent {
     private router: Router
   ) {}
 
-  property: Property[] = [];
-  filteredProperty: Property[] = [];
-
-  getAllProperty(): void {
-    this._propertyService.getAllProperties().subscribe({
-      next: (res) => {
-        this.property = res;
-        this.filteredProperty = res
-      },
-    });
-  }
+  property: any[] = [];
+  filteredProperty: any[] = [];
 
   onSelect(id: string): void {
     this.router.navigate(['/zam', id]);
   }
 
- }
+  ngOnInit(): void {
+    this.getAllProperties();
+  }
+
+  getAllProperties(): void {
+    this._propertyService.getAllProperties().subscribe({
+      next: (properties: any) => {
+        this.property = properties;
+        this.filteredProperty = properties
+      },
+    
+    });
+
+  }}
