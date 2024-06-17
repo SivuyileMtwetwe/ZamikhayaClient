@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Property } from '../../Interfaces/property-interface';
+import { PropertyService } from '../../Services/property.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-one-card',
@@ -10,5 +13,26 @@ export class OneCardComponent {
 
   toggleLike() {
     this.isLiked = !this.isLiked;
+  }
+
+    constructor(
+    private _propertyService: PropertyService,
+    private router: Router
+  ) {}
+
+  properties: Property[] = [];
+  filteredProperty: Property[] = [];
+
+  getAllProperties(): void {
+    this._propertyService.getAllProperties().subscribe({
+      next: (res) => {
+        this.properties = res;
+        this.filteredProperty = res
+      },
+    });
+  }
+
+  onSelect(_id: string): void {
+    this.router.navigate(['/zam', _id]);
   }
 }
