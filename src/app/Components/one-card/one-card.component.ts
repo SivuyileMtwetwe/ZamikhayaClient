@@ -20,13 +20,13 @@ export class OneCardComponent {
     private router: Router
   ) {}
 
-  properties: Property[] = [];
+  property: Property[] = [];
   filteredProperty: Property[] = [];
 
   getAllProperties(): void {
     this._propertyService.getAllProperties().subscribe({
       next: (res) => {
-        this.properties = res;
+        this.property = res;
         this.filteredProperty = res
       },
     });
