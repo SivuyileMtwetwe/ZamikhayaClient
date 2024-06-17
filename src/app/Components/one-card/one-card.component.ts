@@ -1,23 +1,23 @@
-// 
 
-// import { Component, OnInit } from '@angular/core';
-// import { Property } from '../Interfaces/property-interface';
-// import { PropertyService } from '../Services/property.service';
 
-// @Component({
-//   selector: 'app-property-list',
-//   templateUrl: './one-card.component.html',
-//   styleUrls: ['./one-card.component.css']
-// })
-// export class OneCardComponent implements OnInit {
-//   properties: Property[] = [];
+import { Component, OnInit } from '@angular/core';
+import { Property } from '../../Interfaces/property-interface';
+import { PropertyService } from '../../Services/property.service';
 
-//   constructor(private propertyService: PropertyService) {}
+@Component({
+  selector: 'app-one-card',
+  templateUrl: './one-card.component.html',
+  styleUrls: ['./one-card.component.css']
+})
+export class OneCardComponent implements OnInit {
+  properties: Property[] = [];
 
-//   ngOnInit() {
-//     this.propertyService.getAllProperty()
-//       .subscribe(Property => {
-//         this.Property = Property;
-//       });
-//   }
-// }
+  constructor(private propertyService: PropertyService) {}
+
+  ngOnInit() {
+    this.propertyService.getAllProperty()
+      .subscribe(Property => {
+        this.properties = Property;
+      });
+  }
+}
