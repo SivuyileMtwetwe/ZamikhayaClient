@@ -11,11 +11,11 @@ export class PropertyService {
 
   constructor(private _http: HttpClient) { }
 
-getAllProperty():Observable<Property[]> {
+getAllProperties():Observable<Property[]> {
   return this._http.get<Property[]>(this.apiUrl)
 }
 
-  getProperty(id: number): Observable<Property> {
+  getPropertyById(id: number): Observable<Property> {
     return this._http.get<Property>(`${this.apiUrl}/${id}`);
   }
 }

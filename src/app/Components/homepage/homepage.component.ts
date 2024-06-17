@@ -19,7 +19,7 @@ export class HomepageComponent {
   filteredProperty: Property[] = [];
 
   getAllProperty(): void {
-    this._propertyService.getAllProperty().subscribe({
+    this._propertyService.getAllProperties().subscribe({
       next: (res) => {
         this.property = res;
         this.filteredProperty = res
