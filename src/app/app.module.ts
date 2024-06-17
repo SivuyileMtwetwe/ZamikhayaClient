@@ -45,6 +45,7 @@ import { NgFor } from '@angular/common';
     FeaturedComponent,
     HeaderComponent,
     MessageComponent,
+    BottomNavComponent
   ],
 
   imports: [
