@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MessageComponent } from './Components/message/message.component';
 
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
@@ -36,7 +37,8 @@ import { HeaderComponent } from './Components/header/header.component';
     OneCardComponent,
     FilteringComponent,
     FeaturedComponent,
-    HeaderComponent
+    HeaderComponent,
+    MessageComponent
   ],
 
   imports: [
