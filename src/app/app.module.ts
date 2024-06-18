@@ -40,7 +40,8 @@ import { NgFor } from '@angular/common';
     FilteringComponent,
     FeaturedComponent,
     HeaderComponent,
-    BottomNavComponent
+    BottomNavComponent,
+   
   ],
 
   imports: [
