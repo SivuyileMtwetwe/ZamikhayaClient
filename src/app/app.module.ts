@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 
 
 import { SignupComponent } from './Components/signup/signup.component';
@@ -19,7 +18,6 @@ import { PasswordRecoveryComponent } from './Components/password-recovery/passwo
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SettingsComponent } from './Components/settings/settings.component';
-import { MessageComponent } from './Components/message/message.component';
 
 import { OneCardComponent } from './Components/one-card/one-card.component';
 import { FilteringComponent } from './Components/filtering/filtering.component';
@@ -40,12 +38,11 @@ import { NgFor } from '@angular/common';
     HomepageComponent,
     NavbarComponent,
     SettingsComponent,
-    MessageComponent,
     OneCardComponent,
     FilteringComponent,
     FeaturedComponent,
     HeaderComponent,
-    MessageComponent
+    BottomNavComponent
   ],
 
   imports: [
