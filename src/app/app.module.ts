@@ -24,7 +24,7 @@ import { FeaturedComponent } from './Components/featured/featured.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { NgFor } from '@angular/common';
-import { PropertyDetailsComponent } from './Components/property-details/property-details.component';
+import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,7 @@ import { PropertyDetailsComponent } from './Components/property-details/property
     FeaturedComponent,
     HeaderComponent,
     BottomNavComponent,
-    PropertyDetailsComponent,
+    PropertyDetailComponent,
    
   ],
 
