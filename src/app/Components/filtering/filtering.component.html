@@ -1,12 +1,15 @@
 <div class="filtr">
-<select class="select">
-    <option disabled selected>Pick a location</option>
-    <option>Nyanga</option>
-    <option>Samora</option>
-    <option>Phillippi</option>
-    <option>Crossroads</option>
-  </select>
-
+    <div class="fliter">
+        <div>
+            <select [(ngModel)]="selectedLocation" (change)="onLocationChange()">
+              <option value="" disabled>Pick a location</option> 
+              <option *ngFor="let location of location" [value]="location">
+                {{location}}
+              </option>
+            </select>
+          </div>
+          
+</div>
 <form class="max-w-md mx-auto">   
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div class="relative">
