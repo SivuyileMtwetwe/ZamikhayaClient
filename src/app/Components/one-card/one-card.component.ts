@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-one-card',
   templateUrl: './one-card.component.html',
-  styleUrl: './one-card.component.css'
+  styleUrls: ['./one-card.component.css']
 })
 export class OneCardComponent {
   isLiked = false; // Initially not liked
