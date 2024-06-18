@@ -1,6 +1,8 @@
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { PropertyService } from '../../Services/property.service';
 
 
 @Component({
@@ -9,10 +11,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
+  favListCount$ = new BehaviorSubject<number>(0);
+
+  constructor(
+    private router: Router,
+    private propertyService: PropertyService
+  ) {}
+
+  ngOnInit():void{ 
+    this.favListCount$ = this.propertyService.favCount
+  }
 
   signOut() {
     console.log('User signed out');
     this.router.navigate(['/homepage']);
   }
+
 }
