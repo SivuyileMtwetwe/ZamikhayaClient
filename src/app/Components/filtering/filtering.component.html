@@ -1,9 +1,9 @@
 <div class="filtr">
     <div class="fliter">
         <div>
-            <select [(ngModel)]="selectedLocation" (change)="onLocationChange()">
+            <select [(ngModel)]="selectedLocation" >
               <option value="" disabled>Pick a location</option> 
-              <option *ngFor="let location of location" [value]="location">
+              <option *ngFor="let location of locations" [value]="location" (change)="filterByLocation(location)">
                 {{location}}
               </option>
             </select>
