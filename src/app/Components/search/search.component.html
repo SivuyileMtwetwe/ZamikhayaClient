@@ -1,0 +1,15 @@
+<!-- src/app/search/search.component.html -->
+<div>
+    <input [(ngModel)]="searchQuery" type="text" placeholder="Search items">
+    <button (click)="onSearch()">Search</button>
+  </div>
+  <div *ngIf="filteredItems.length > 0">
+    <h3>Search Results:</h3>
+    <ul>
+      <li *ngFor="let item of filteredItems">{{ item }}</li>
+    </ul>
+  </div>
+  <div *ngIf="filteredItems.length === 0 && searchQuery">
+    <p>No results found.</p>
+  </div>
+  

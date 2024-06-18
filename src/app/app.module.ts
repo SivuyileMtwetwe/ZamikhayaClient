@@ -22,6 +22,7 @@ import { FeaturedComponent } from './Components/featured/featured.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { NgFor } from '@angular/common';
+import { SearchComponent } from './Components/header/search/search.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NgFor } from '@angular/common';
     FilteringComponent,
     FeaturedComponent,
     HeaderComponent,
-    BottomNavComponent
+    BottomNavComponent,
+    SearchComponent
   ],
 
   imports: [
