@@ -1,43 +1,80 @@
-import { Component, OnInit, OnDestroy, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { PropertyService } from '../../Services/property.service';
 
 @Component({
   selector: 'app-featured',
   templateUrl: './featured.component.html',
   styleUrls: ['./featured.component.css']
 })
-export class FeaturedComponent implements OnInit, OnDestroy, AfterViewInit {
-  private intervalId!: NodeJS.Timeout; 
-  private carousel!: HTMLElement;
+export class FeaturedComponent implements OnInit, OnDestroy {
+  private intervalId?: number;
+  private subscription?: Subscription;
+  images: string[] = [];
+  
+  @ViewChild('carousel', { static: true }) carousel!: ElementRef;
 
-  constructor(private elementRef: ElementRef) {} 
+  constructor(private propertyService: PropertyService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.fetchProperties();
   }
 
-  ngAfterViewInit() { 
-    this.carousel = this.elementRef.nativeElement.querySelector('.carousel') as HTMLElement;
-    this.startCarousel(); 
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
+  fetchProperties(): void {
+    this.subscription = this.propertyService.getAllProperties().subscribe({
+      next: (properties: any[]) => {
+        this.images = properties.map(property => property.images);
+        if (typeof document !== 'undefined') {
+          this.startCarousel();
+        }
+      },
+      error: (error: any) => {
+        console.error('Error fetching properties:', error);
+      }
+    });
   }
 
-  startCarousel() {
-    if (!this.carousel) return; 
+  startCarousel(): void {
+    if (typeof document === 'undefined' || !this.carousel) {
+      return;
+    }
 
+    const carouselElement = this.carousel.nativeElement;
+    const step = carouselElement.clientWidth;
     let scrollAmount = 0;
-    const scrollMax = this.carousel.scrollWidth - this.carousel.clientWidth;
-    const step = this.carousel.clientWidth;
 
-    this.intervalId = setInterval(() => {
-      if (scrollAmount >= scrollMax) {
-        scrollAmount = 10; 
+    const scrollCarousel = () => {
+      if (scrollAmount >= carouselElement.scrollWidth) {
+        scrollAmount = 0;
+        carouselElement.scrollTo({
+          left: scrollAmount,
+          behavior: 'auto'
+        });
       } else {
         scrollAmount += step;
+        carouselElement.scrollTo({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
       }
+    };
 
-      this.carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-    }, 3000);
+    this.intervalId = window.setInterval(scrollCarousel, 3000);
+    carouselElement.addEventListener('mouseenter', () => {
+      clearInterval(this.intervalId);
+    });
+
+    carouselElement.addEventListener('mouseleave', () => {
+      this.intervalId = window.setInterval(scrollCarousel, 3000);
+    });
   }
 }

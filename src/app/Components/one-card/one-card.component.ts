@@ -31,7 +31,6 @@ export class OneCardComponent {
       next: (properties: any) => {
         this.property = properties;
         this.filteredProperty = properties
-        console.log(properties)
       },
     
     });
