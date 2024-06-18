@@ -22,7 +22,7 @@ export class PropertyService {
 
   getFavlist = (): any[] => this.favList;
 
-  addToWishlist = (property: any): void => {
+  addToFavlist = (property: any): void => {
     const alreadyInfavlist = this.favList.some(({ id }) => id === property.id);
     if (!alreadyInfavlist) {
       this.favList.push(property);
