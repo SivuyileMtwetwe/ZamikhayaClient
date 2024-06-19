@@ -1,5 +1,18 @@
 
-  <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 " *ngFor="let property of property">
+<div class="fliter">
+  <div>
+    
+      <select [(ngModel)]="selectedLocation" (change)="filterByLocation(selectedLocation)">
+         <!-- <option value="" disabled>Pick a location</option> -->
+        <option  *ngFor="let location of locations" [value]="location">
+          {{location}}
+        </option>
+      </select>
+    </div>
+    
+</div>
+  
+  <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 " *ngFor="let property of filteredItems">
     <a href="#">
       <img class="p-8 rounded-t-lg" [src]="property.images" alt="product image" />
     </a>

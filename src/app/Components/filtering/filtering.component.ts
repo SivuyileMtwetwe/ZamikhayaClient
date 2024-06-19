@@ -18,7 +18,7 @@ constructor(
   private  _propertyService: PropertyService){}
 
   ngOnInit() {
-    
+    console.log("hello")
   }
 
   onLocationChange() {
@@ -45,6 +45,8 @@ constructor(
     }
   
     this.filteredItems = this.allItems.filter(item => item.location === location);
+   console.log(this.filteredItems)
     return this.filteredItems;
+
   }
 }
