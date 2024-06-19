@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PropertyService } from '../../Services/property.service';
-// import { Property } from '../../Interfaces/property-interface';
+import { Property } from '../../Interfaces/property-interface';
 
 @Component({
   selector: 'app-homepage',
@@ -10,15 +10,14 @@ import { PropertyService } from '../../Services/property.service';
 })
 export class HomepageComponent {
   constructor(
-    private _propertyService: PropertyService,
+    private propertyService: PropertyService,
     private router: Router
   ) {}
 
-  property: any[] = [];
-  filteredProperty: any[] = [];
+  properties: any[] = [];
 
   onSelect(id: string): void {
-    this.router.navigate(['/zam', id]);
+    this.router.navigate(['/property-details', id]);
   }
 
   ngOnInit(): void {
@@ -26,10 +25,9 @@ export class HomepageComponent {
   }
 
   getAllProperties(): void {
-    this._propertyService.getAllProperties().subscribe({
-      next: (properties: any) => {
-        this.property = properties;
-        this.filteredProperty = properties
+    this.propertyService.getAllProperties().subscribe({
+      next: (data: any) => {
+        this.properties = data;
       },
     
     });

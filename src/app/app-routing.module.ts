@@ -7,6 +7,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { PasswordRecoveryComponent } from './Components/password-recovery/password-recovery.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { OneCardComponent } from './Components/one-card/one-card.component';
+import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryComponent },
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: OneCardComponent },
-  { path: '**', redirectTo: '' }
+  // { path: '**', redirectTo: '' },
+  { path: 'property-details/:id', component: PropertyDetailComponent },
 ];
 
 @NgModule({
