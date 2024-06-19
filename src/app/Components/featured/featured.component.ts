@@ -49,20 +49,32 @@ export class FeaturedComponent implements OnInit, OnDestroy {
     }
 
     const carouselElement = this.carousel.nativeElement;
-    let scrollAmount = 0;
-    const scrollMax = carouselElement.scrollWidth - carouselElement.clientWidth;
     const step = carouselElement.clientWidth;
+    let scrollAmount = 0;
 
-    this.intervalId = window.setInterval(() => {
-      if (scrollAmount >= scrollMax) {
+    const scrollCarousel = () => {
+      if (scrollAmount >= carouselElement.scrollWidth) {
         scrollAmount = 0;
+        carouselElement.scrollTo({
+          left: scrollAmount,
+          behavior: 'auto'
+        });
       } else {
         scrollAmount += step;
+        carouselElement.scrollTo({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
       }
-      carouselElement.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
-    }, 3000);
+    };
+
+    this.intervalId = window.setInterval(scrollCarousel, 3000);
+    carouselElement.addEventListener('mouseenter', () => {
+      clearInterval(this.intervalId);
+    });
+
+    carouselElement.addEventListener('mouseleave', () => {
+      this.intervalId = window.setInterval(scrollCarousel, 3000);
+    });
   }
 }
