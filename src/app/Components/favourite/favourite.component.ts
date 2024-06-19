@@ -19,7 +19,6 @@ export class FavouriteComponent implements OnInit {
 
   loadFavlist(): void {
     this._favList = this.propertyService.getFavlist();
-    this.favCount = this.propertyService.favCount.value;
   }
   onSelect(id: string): void {
     this.router.navigate(['/property-details', id]);
