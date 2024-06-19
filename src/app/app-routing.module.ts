@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryComponent },
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: OneCardComponent },
-  { path: '**', redirectTo: '' },
-  { path: 'property/:id', component: PropertyDetailComponent },
+  // { path: '**', redirectTo: '' },
+  { path: 'property-details/:id', component: PropertyDetailComponent },
 ];
 
 @NgModule({

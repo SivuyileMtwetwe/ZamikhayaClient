@@ -10,14 +10,14 @@ import { Property } from '../../Interfaces/property-interface';
 })
 export class HomepageComponent {
   constructor(
-    private _propertyService: PropertyService,
+    private propertyService: PropertyService,
     private router: Router
   ) {}
 
   properties: any[] = [];
 
   onSelect(id: string): void {
-    this.router.navigate(['/zam/properties', id]);
+    this.router.navigate(['/property-details', id]);
   }
 
   ngOnInit(): void {
@@ -25,10 +25,9 @@ export class HomepageComponent {
   }
 
   getAllProperties(): void {
-    this._propertyService.getAllProperties().subscribe({
+    this.propertyService.getAllProperties().subscribe({
       next: (data: any) => {
         this.properties = data;
-        console.log(data)
       },
     
     });

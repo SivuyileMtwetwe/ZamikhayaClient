@@ -34,7 +34,7 @@ export class PropertyService {
     }
   }
 
-  getPropertyById(id: number): Observable<any> {
+  getPropertyById(id: string): Observable<any> {
     return this._http.get<any>(`${this.apiUrl}/${id}`);
   }
 }
