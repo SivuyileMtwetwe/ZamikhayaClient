@@ -9,7 +9,7 @@ import { PropertyService } from '../../Services/property.service';
 export class FilteringComponent {
   locations: string[] = ['Nyanga', 'Samora', 'Phillippi', 'Crossroads']; 
   selectedLocation: string = ''; 
-  filteredItems: any[] = []; // Array to hold filtered items
+  filteredItems: any[] = []; 
   allItems: any[] = []
   filteredProperty: any[] = [];
   property: any[] = [];
