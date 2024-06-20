@@ -22,7 +22,7 @@ import { OneCardComponent } from './Components/one-card/one-card.component';
 import { FilteringComponent } from './Components/filtering/filtering.component';
 import { FeaturedComponent } from './Components/featured/featured.component';
 import { HeaderComponent } from './Components/header/header.component';
-import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
+// import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { NgFor } from '@angular/common';
 import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 
@@ -43,7 +43,7 @@ import { PropertyDetailComponent } from './Components/property-details/property-
     FilteringComponent,
     FeaturedComponent,
     HeaderComponent,
-    BottomNavComponent,
+    // BottomNavComponent,
     PropertyDetailComponent,
    
   ],

@@ -34,14 +34,14 @@ export class IntroComponent {
   constructor(private router: Router) {}
 
   skipIntro() {
-    this.router.navigate(['/signin']);
+    this.router.navigate(['/homepage']);
   }
 
   nextSlide() {
     if (this.currentSlide < this.slides.length - 1) {
       this.currentSlide++;
     } else {
-      this.router.navigate(['/signin']);
+      this.router.navigate(['/homepage']);
     }
   }
 }

@@ -8,16 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./one-card.component.css']
 })
 export class OneCardComponent {
-  isLiked = false; // Initially not liked
+  isLiked = false; 
   selectedLocation: string = 'All Locations';
   locations: string[] = ['All Locations','Lower-Luzuko', 'Samora Cape Town', 'Philippi', 'Crossroads']; 
   filteredItems: any[] = []; 
   properties: any[] = [];
 
 
-    constructor() {}
+  constructor(
+    private propertyService: PropertyService,
+    private router: Router
+  ) {}
 
-  @Input() properties: any[] = [];
+  onSelect(id: string): void {
+    this.router.navigate(['/property-details', id]);
+  }
+
+  // @Input() properties: any[] = [];
 
   ngOnInit(): void {
     this.getAllProperties();
@@ -25,7 +32,7 @@ export class OneCardComponent {
   }
 
   getAllProperties(): void {
-    this._propertyService.getAllProperties().subscribe({
+    this.propertyService.getAllProperties().subscribe({
       next: (res: any) => {
         this.properties = res;
         this.filteredItems = res
