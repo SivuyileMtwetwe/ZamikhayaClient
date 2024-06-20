@@ -55,12 +55,13 @@
 <div class="px-5 pb-5">
   <div class="flex items-center mt-2.5 mb-5">
     <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ property.type }}</span>
-    <div class="flex items-center w-full max-w-xs p">
-      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <div class="flex items-center w-full max-w-xs p" (click)="addToFavList(property)">
+      <svg class="w-6 h-6 text-gray-800 dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
         <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
       </svg>      
     </div>
-  </div>  
+  </div>
+
   <div class="flex items-center justify-between mt-3">
     <span class="text-2l font-bold text-gray-900 dark:text-white">R{{property.price }}</span>
   </div>

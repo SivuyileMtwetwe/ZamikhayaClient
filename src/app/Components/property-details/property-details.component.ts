@@ -25,7 +25,10 @@ export class PropertyDetailComponent implements OnInit {
     if (id) {
       this.viewProperty(id);
     }
-}
+  }
+  addToFavList(property: any): void {
+    this.propertyService.addToFavlist(property)
+  }
 
   goBack(){
     this._location.back()

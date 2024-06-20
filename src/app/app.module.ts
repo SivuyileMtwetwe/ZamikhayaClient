@@ -48,7 +48,7 @@ import { PropertyDetailComponent } from './Components/property-details/property-
    
   ],
 
-  imports: [
+  imports: [ 
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
