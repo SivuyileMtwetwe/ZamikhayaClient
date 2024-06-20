@@ -28,8 +28,9 @@ export class PropertyDetailComponent implements OnInit {
 }
 
   goBack(){
-    this._location.back
+    this._location.back()
   }
+
   viewProperty(id: string): void {
     this.propertyService.getPropertyById(id).subscribe({
       next: (data: any[]) => {
