@@ -3,7 +3,6 @@
   <div>
     
       <select [(ngModel)]="selectedLocation" (change)="filterByLocation(selectedLocation)">
-         <!-- <option value="" disabled>Pick a location</option> -->
         <option  *ngFor="let location of locations" [value]="location">
           {{location}}
         </option>

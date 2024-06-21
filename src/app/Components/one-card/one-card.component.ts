@@ -24,8 +24,6 @@ export class OneCardComponent {
     this.router.navigate(['/property-details', id]);
   }
 
-  // @Input() properties: any[] = [];
-
   ngOnInit(): void {
     this.getAllProperties();
     
