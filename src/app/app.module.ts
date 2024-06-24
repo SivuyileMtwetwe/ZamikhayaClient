@@ -25,6 +25,7 @@ import { HeaderComponent } from './Components/header/header.component';
 // import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { NgFor } from '@angular/common';
 import { PropertyDetailComponent } from './Components/property-details/property-details.component';
+import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { PropertyDetailComponent } from './Components/property-details/property-
     HeaderComponent,
     // BottomNavComponent,
     PropertyDetailComponent,
+    AddPropertyComponent,
    
   ],
 
