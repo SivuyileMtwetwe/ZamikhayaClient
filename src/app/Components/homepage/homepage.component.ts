@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PropertyService } from '../../Services/property.service';
-import { Property } from '../../Interfaces/property-interface';
+
 
 @Component({
   selector: 'app-homepage',

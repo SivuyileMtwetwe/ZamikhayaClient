@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../../Services/property.service';
-import { Property } from '../../Interfaces/property-interface';
 import { Location } from '@angular/common';
 
 
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-details.component.html',
-  styleUrls: ['./property-details.component.css']
+  // styleUrls: ['./property-details.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
   // selectedProperty?: Property;
