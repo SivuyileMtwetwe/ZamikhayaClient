@@ -26,6 +26,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { NgFor } from '@angular/common';
 import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 import { FavouriteComponent } from './Components/favourite/favourite.component';
+import { MessagesComponent } from './BusinessComponents/messages/messages.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { FavouriteComponent } from './Components/favourite/favourite.component';
     HeaderComponent,
     // BottomNavComponent,
     PropertyDetailComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    MessagesComponent
    
   ],
 
