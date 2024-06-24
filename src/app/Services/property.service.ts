@@ -8,7 +8,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class PropertyService {
   
-   apiUrl = 'http://localhost:5007/zam/properties'; 
+   apiUrl = 'http://localhost:5007/zam/properties';
+    
    favCount = new BehaviorSubject<number>(0);
    favList: any[] =[];
   
