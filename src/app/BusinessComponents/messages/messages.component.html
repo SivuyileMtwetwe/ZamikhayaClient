@@ -23,7 +23,7 @@
       <button *ngFor="let msg of predefinedMessages" (click)="sendMessage(msg)" class="btn btn-outline btn-sm m-1">
         {{ msg }}
       </button>
-    </div>
+    </div> c
     <div class="message-input flex items-center mt-4">
       <input type="text" [(ngModel)]="newMessage" placeholder="Type a message..." class="input input-bordered flex-grow mr-2" />
       <button (click)="sendMessage()" class="btn btn-primary flex items-center">
