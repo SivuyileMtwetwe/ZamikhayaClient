@@ -27,6 +27,7 @@ import { NgFor } from '@angular/common';
 import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 import { FavouriteComponent } from './Components/favourite/favourite.component';
 import { MessagesComponent } from './BusinessComponents/messages/messages.component';
+import { ListingComponent } from './BusinessComponents/listing/listing.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MessagesComponent } from './BusinessComponents/messages/messages.compon
     // BottomNavComponent,
     PropertyDetailComponent,
     FavouriteComponent,
-    MessagesComponent
+    MessagesComponent,
+    ListingComponent
    
   ],
 
