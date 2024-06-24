@@ -9,6 +9,8 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
 import { PropertiesComponent } from './Components/properties/properties.component';
 import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 import { FavouriteComponent } from './Components/favourite/favourite.component';
+import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
+import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryComponent },
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: PropertiesComponent },
+  { path: 'homeview', component: HomeviewComponent},
+  { path: 'add-property', component: AddPropertyComponent},
   // { path: '**', redirectTo: '' },
   { path: 'property-details/:id', component: PropertyDetailComponent },
   {path: 'favourite',component: FavouriteComponent}
