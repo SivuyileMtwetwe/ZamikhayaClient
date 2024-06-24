@@ -10,6 +10,7 @@ import { PropertiesComponent } from './Components/properties/properties.componen
 import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 import { FavouriteComponent } from './Components/favourite/favourite.component';
 import { MessagesComponent } from './BusinessComponents/messages/messages.component';
+import { ListingComponent } from './BusinessComponents/listing/listing.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   // { path: '**', redirectTo: '' },
   { path: 'property-details/:id', component: PropertyDetailComponent },
   {path: 'favourite',component: FavouriteComponent},
-  {path:'messages', component:MessagesComponent}
+  {path:'messages', component:MessagesComponent},
+  {path: 'listing', component: ListingComponent}
 ];
 
 @NgModule({
