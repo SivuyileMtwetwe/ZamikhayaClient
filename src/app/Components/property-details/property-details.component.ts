@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../../Services/property.service';
-// import { Property } from '../../Interfaces/property-interface';
+import { Property } from '../../Interfaces/property-interface';
 import { Location } from '@angular/common';
 
 
@@ -28,6 +28,7 @@ export class PropertyDetailComponent implements OnInit {
   }
   addToFavList(property: any): void {
     this.propertyService.addToFavlist(property)
+    console.log("Added to faves")
   }
 
   goBack(){
@@ -38,7 +39,6 @@ export class PropertyDetailComponent implements OnInit {
     this.propertyService.getPropertyById(id).subscribe({
       next: (data: any[]) => {
         this.property = data;
-        console.log(data)
       },
       error: (error) => {
         console.log('Error fetching property details:', error);

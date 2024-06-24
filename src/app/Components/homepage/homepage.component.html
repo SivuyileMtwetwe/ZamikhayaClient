@@ -1,18 +1,9 @@
  <app-navbar></app-navbar>
- <!-- <app-filtering></app-filtering> -->
 
  <div class="filtr">
-  <!-- <div class="fliter">
-      <div>
-          <select [(ngModel)]="selectedLocation" >
-            <option value="" disabled>Pick a location</option> 
-            <option *ngFor="let location of locations" [value]="location" (change)="filterByLocation(location)">
-              {{location}}
-            </option>
-          </select>
-        </div>
+ 
         
-</div> -->
+</div> 
 <!-- <form class="max-w-md mx-auto">   
   <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
   <div class="relative">
@@ -26,13 +17,11 @@
   </div>
 </form> -->
 
-</div>
-
 <app-featured></app-featured>
 <div class="homepage-container flex flex-col justify-between h-screen  dark:bg-gray-900">
     <div class="container mx-auto px-4 py-8 rounded-2xl shadow dark:shadow-md border border-black ">
       <h1 class="text-3xl font-bold mb-4">All</h1>
-     <app-one-card></app-one-card>
+     <app-properties></app-properties>
     </div>
 </div>
 <!-- <app-bottom-nav></app-bottom-nav> -->
