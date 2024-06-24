@@ -28,7 +28,7 @@ export class PropertyService {
     if (!alreadyInfavlist) {
       this.favList.push(property);
       
-      this.favCount.value + 1;
+      this.favCount.next(this.favCount.value + 1);
       
     } else {
       console.log("Property already exists in favlist!");

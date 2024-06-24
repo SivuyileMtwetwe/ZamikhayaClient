@@ -28,6 +28,7 @@ export class PropertyDetailComponent implements OnInit {
   }
   addToFavList(property: any): void {
     this.propertyService.addToFavlist(property)
+    console.log("Added to faves")
   }
 
   goBack(){
