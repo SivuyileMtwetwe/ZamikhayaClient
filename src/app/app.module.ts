@@ -48,7 +48,8 @@ import { MessagesComponent } from './BusinessComponents/messages/messages.compon
     // BottomNavComponent,
     PropertyDetailComponent,
     FavouriteComponent,
-    MessagesComponent
+    MessagesComponent,
+  
    
   ],
 
@@ -59,6 +60,7 @@ import { MessagesComponent } from './BusinessComponents/messages/messages.compon
     AppRoutingModule,
     NgFor,  
     HttpClientModule
+    
   ],
   
   providers: [],
