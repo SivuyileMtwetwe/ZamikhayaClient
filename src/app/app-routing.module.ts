@@ -11,6 +11,7 @@ import { PropertyDetailComponent } from './Components/property-details/property-
 import { FavouriteComponent } from './Components/favourite/favourite.component';
 import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
+import { MapviewComponent } from './Components/mapview/mapview.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: PropertiesComponent },
   { path: 'homeview', component: HomeviewComponent},
+  { path: 'mapview', component: MapviewComponent},
   { path: 'add-property', component: AddPropertyComponent},
   // { path: '**', redirectTo: '' },
   { path: 'property-details/:id', component: PropertyDetailComponent },
