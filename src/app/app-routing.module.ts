@@ -24,11 +24,16 @@ const routes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryComponent },
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: PropertiesComponent },
+  { path: 'profile', component: ProfileComponent},
+  // { path: '**', redirectTo: '' },
+  { path: 'property-details/:id', component: PropertyDetailComponent },
+  {path: 'favourite',component: FavouriteComponent},
   // { path: '**', redirectTo: '' },
   { path: 'property-details/:id', component: PropertyDetailComponent },
   {path: 'favourite',component: FavouriteComponent},
   {path:'messages', component:MessagesComponent},
-  { path: 'Dashboard', component:DashboardComponent}
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'listing', component:ListingComponent}
 ];
 
 @NgModule({
