@@ -3,11 +3,11 @@ import { PropertyService } from '../../Services/property.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-one-card',
-  templateUrl: './one-card.component.html',
-  styleUrls: ['./one-card.component.css']
+  selector: 'app-properties',
+  templateUrl: './properties.component.html',
+  styleUrls: ['./properties.component.css']
 })
-export class OneCardComponent {
+export class PropertiesComponent {
   isLiked = false; 
   selectedLocation: string = 'All Locations';
   locations: string[] = ['All Locations','Lower-Luzuko', 'Samora Cape Town', 'Philippi', 'Crossroads']; 
@@ -23,8 +23,6 @@ export class OneCardComponent {
   onSelect(id: string): void {
     this.router.navigate(['/property-details', id]);
   }
-
-  // @Input() properties: any[] = [];
 
   ngOnInit(): void {
     this.getAllProperties();

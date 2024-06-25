@@ -1,0 +1,34 @@
+<div class="chat-container card bg-base-100 shadow-xl p-4">
+    <div class="messages-list overflow-y-auto h-80 p-2">
+      <div *ngFor="let message of messages" class="chat-message">
+        <div class="chat-bubble" [ngClass]="{'chat-end': message.sender === currentUser, 'chat-start': message.sender !== currentUser}">
+          <div class="chat-bubble-content">
+            <div class="chat-avatar">
+              <div class="avatar">
+                <div class="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img [src]="message.senderAvatar" />
+                </div>
+              </div>
+            </div>
+            <div class="chat-text">
+              <p class="chat-sender badge badge-primary">{{ message.sender }}</p>
+              <p class="chat-content">{{ message.content }}</p>
+              <p class="chat-timestamp text-xs text-gray-500">{{ message.timestamp | date:'short' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="predefined-messages flex flex-wrap mt-4">
+      <button *ngFor="let msg of predefinedMessages" (click)="sendMessage(msg)" class="btn btn-outline btn-sm m-1">
+        {{ msg }}
+      </button>
+    </div>
+    <div class="message-input flex items-center mt-4">
+      <input type="text" [(ngModel)]="newMessage" placeholder="Type a message..." class="input input-bordered flex-grow mr-2" />
+      <button (click)="sendMessage()" class="btn btn-primary flex items-center">
+        <i class="fas fa-paper-plane mr-2"></i> Send
+      </button>
+    </div>
+  </div>
+  
