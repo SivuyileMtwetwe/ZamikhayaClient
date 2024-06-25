@@ -16,6 +16,7 @@ import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.com
 
 import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
+import { MapviewComponent } from './Components/mapview/mapview.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'one-card', component: PropertiesComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'homeview', component: HomeviewComponent},
+  { path: 'mapview', component: MapviewComponent},
   { path: 'add-property', component: AddPropertyComponent},
   // { path: '**', redirectTo: '' },
   { path: 'property-details/:id', component: PropertyDetailComponent },
