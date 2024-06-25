@@ -14,6 +14,8 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
 import { ProfileComponent } from './Components/profile/profile.component';
 import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.component';
 
+import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
+import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: PropertiesComponent },
   { path: 'profile', component: ProfileComponent},
+  { path: 'homeview', component: HomeviewComponent},
+  { path: 'add-property', component: AddPropertyComponent},
   // { path: '**', redirectTo: '' },
   { path: 'property-details/:id', component: PropertyDetailComponent },
   {path: 'favourite',component: FavouriteComponent},

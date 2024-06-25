@@ -29,6 +29,8 @@ import { PropertyDetailComponent } from './Components/property-details/property-
 import { FavouriteComponent } from './Components/favourite/favourite.component';
 import { MessagesComponent } from './BusinessComponents/messages/messages.component';
 import { ListingComponent } from './BusinessComponents/listing/listing.component';
+import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
+import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 
 
 @NgModule({
@@ -53,8 +55,9 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
     MessagesComponent,
     ListingComponent,
     MessagesComponent,
-    DashboardComponent
-  
+    DashboardComponent,
+    HomeviewComponent,
+    AddPropertyComponent,
    
   ],
 
