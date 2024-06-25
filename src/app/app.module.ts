@@ -51,6 +51,8 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
     FavouriteComponent,
     MessagesComponent,
     ListingComponent
+    MessagesComponent,
+  
    
   ],
 
@@ -61,6 +63,7 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
     AppRoutingModule,
     NgFor,  
     HttpClientModule
+    
   ],
   
   providers: [],
