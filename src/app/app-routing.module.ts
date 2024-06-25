@@ -12,6 +12,9 @@ import { FavouriteComponent } from './Components/favourite/favourite.component';
 import { MessagesComponent } from './BusinessComponents/messages/messages.component';
 import { ListingComponent } from './BusinessComponents/listing/listing.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.component';
+
+
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -25,8 +28,7 @@ const routes: Routes = [
   { path: 'property-details/:id', component: PropertyDetailComponent },
   {path: 'favourite',component: FavouriteComponent},
   {path:'messages', component:MessagesComponent},
-  {path: 'listing', component: ListingComponent},
-  {path:'profile',component:ProfileComponent}
+  { path: 'Dashboard', component:DashboardComponent}
 ];
 
 @NgModule({
