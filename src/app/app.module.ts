@@ -16,6 +16,7 @@ import { PasswordRecoveryComponent } from './Components/password-recovery/passwo
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SettingsComponent } from './Components/settings/settings.component';
+import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.component';
 
 
 import { PropertiesComponent } from './Components/properties/properties.component';
@@ -52,6 +53,7 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
     MessagesComponent,
     ListingComponent,
     MessagesComponent,
+    DashboardComponent
   
    
   ],
