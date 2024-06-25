@@ -50,7 +50,7 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
     PropertyDetailComponent,
     FavouriteComponent,
     MessagesComponent,
-    ListingComponent
+    ListingComponent,
     MessagesComponent,
   
    
