@@ -16,6 +16,8 @@ import { PasswordRecoveryComponent } from './Components/password-recovery/passwo
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { SettingsComponent } from './Components/settings/settings.component';
+import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.component';
+import { MapviewComponent } from './Components/mapview/mapview.component';
 
 
 import { PropertiesComponent } from './Components/properties/properties.component';
@@ -24,10 +26,13 @@ import { FeaturedComponent } from './Components/featured/featured.component';
 import { HeaderComponent } from './Components/header/header.component';
 // import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { NgFor } from '@angular/common';
+
 import { PropertyDetailComponent } from './Components/property-details/property-details.component';
 import { FavouriteComponent } from './Components/favourite/favourite.component';
 import { MessagesComponent } from './BusinessComponents/messages/messages.component';
 import { ListingComponent } from './BusinessComponents/listing/listing.component';
+import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
+import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 
 
 @NgModule({
@@ -50,8 +55,12 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
     PropertyDetailComponent,
     FavouriteComponent,
     MessagesComponent,
-    ListingComponent
-   
+    ListingComponent,
+    MessagesComponent,
+    DashboardComponent,
+    HomeviewComponent,
+    AddPropertyComponent,
+   MapviewComponent
   ],
 
   imports: [ 
@@ -61,6 +70,7 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
     AppRoutingModule,
     NgFor,  
     HttpClientModule
+    
   ],
   
   providers: [],

@@ -11,6 +11,13 @@ import { PropertyDetailComponent } from './Components/property-details/property-
 import { FavouriteComponent } from './Components/favourite/favourite.component';
 import { MessagesComponent } from './BusinessComponents/messages/messages.component';
 import { ListingComponent } from './BusinessComponents/listing/listing.component';
+import { ProfileComponent } from './Components/profile/profile.component';
+import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.component';
+
+import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
+import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
+import { MapviewComponent } from './Components/mapview/mapview.component';
+
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -20,11 +27,19 @@ const routes: Routes = [
   { path: 'password-recovery', component: PasswordRecoveryComponent },
   { path: 'homepage', component:HomepageComponent},
   {path: 'one-card', component: PropertiesComponent },
+  { path: 'profile', component: ProfileComponent},
+  { path: 'homeview', component: HomeviewComponent},
+  { path: 'mapview', component: MapviewComponent},
+  { path: 'add-property', component: AddPropertyComponent},
+  // { path: '**', redirectTo: '' },
+  { path: 'property-details/:id', component: PropertyDetailComponent },
+  {path: 'favourite',component: FavouriteComponent},
   // { path: '**', redirectTo: '' },
   { path: 'property-details/:id', component: PropertyDetailComponent },
   {path: 'favourite',component: FavouriteComponent},
   {path:'messages', component:MessagesComponent},
-  {path: 'listing', component: ListingComponent}
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'listing', component:ListingComponent}
 ];
 
 @NgModule({

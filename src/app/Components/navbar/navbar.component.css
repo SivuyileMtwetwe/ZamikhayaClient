@@ -28,3 +28,8 @@ nav {
     text-decoration: underline;
   }
   
+  .profile-container {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
