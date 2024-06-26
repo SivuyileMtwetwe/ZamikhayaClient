@@ -14,19 +14,19 @@ export class IntroComponent {
     {
       title: 'WELCOME',
       subtitle: 'Are you ready to move?',
-      image: 'assets/—Pngtree—little boy holding welcome banner_6735885.png',
+      image: 'assets/House searching-bro.png',
       description: 'Find <span>your township home</span> with us today.'
     },
     {
       title: 'EXPLORE',
       subtitle: 'Discover new places.',
-      image: 'assets/—Pngtree—finding your home in mobile_13128388.png',
+      image: 'assets/New entries-amico.png',
       description: 'Explore the best townships around you.'
     },
     {
       title: 'CONNECT',
       subtitle: 'Join our community.',
-      image: 'assets/ImageToStl.com_man-doing-preparation-to-move-house-4604527-3805142.png',
+      image: 'assets/Online friends-amico.png',
       description: 'Become part of our vibrant community.'
     }
   ];
