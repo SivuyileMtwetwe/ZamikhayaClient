@@ -52,7 +52,6 @@ import { BusinessComponent } from './BusinessComponents/business/business.compon
     FilteringComponent,
     FeaturedComponent,
     HeaderComponent,
-    // BottomNavComponent,
     PropertyDetailComponent,
     FavouriteComponent,
     MessagesComponent,
