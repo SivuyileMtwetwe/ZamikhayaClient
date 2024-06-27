@@ -20,7 +20,7 @@ export class IntroComponent {
     {
       title: 'EXPLORE',
       subtitle: 'Discover new places.',
-      image: 'assets/New entries-amico.png',
+      image: 'assets/New entries-amico (1).png',
       description: 'Explore the best townships around you.'
     },
     {
