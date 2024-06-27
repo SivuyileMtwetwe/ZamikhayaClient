@@ -1,1 +1,59 @@
-<p>add-property works!</p>
+<div class="add-property-container">
+    <h1>Add Property</h1>
+    <h2>Become a landlord</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="input input-bordered w-96" id="title" [(ngModel)]="property.title" name="title" placeholder="Enter title">
+      </div>
+  
+      <div class="form-group">
+        
+      </div>
+  
+      <div class="form-group" class="grid md:grid-cols-2 md:gap-6">
+        <label for="address">Address</label>
+        <label for="zip">ZIP</label>
+        <input type="text" class="input input-bordered w-64" id="address" [(ngModel)]="property.address" name="address" placeholder="Enter address">
+        <input type="text" class="input input-bordered w-24" id="zip" [(ngModel)]="property.zip" name="zip" placeholder="ZIP">
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="input input-bordered w-full max-w-xs" [(ngModel)]="property.description" name="description" placeholder="Write description e.g give directions to the place."></textarea>
+      </div>
+  
+      <div class="form-group grid md:grid-cols-2 md:gap-1">
+        <label for="price">Price</label>
+        <label>Payment method</label>
+        <input type="number" class="input input-bordered w-24" id="price" [(ngModel)]="property.price" name="price" placeholder="R 45,678.90">
+        
+        <select [(ngModel)]="property.paymentMethod" class="input input-bordered w-24" name="paymentMethod">
+          <option value="pm">pm</option>
+          <option value="full price">full price</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label>Service</label>
+        <div class="button-group">
+          <button type="button" [class.active]="property.service === 'Selling'" (click)="property.service = 'Selling'">Selling</button>
+          <button type="button" [class.active]="property.service === 'Rental'" (click)="property.service = 'Rental'">Rental</button>
+          <button type="button" [class.active]="property.service === 'Booking'" (click)="property.service = 'Booking'">Booking</button>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Add images</label>
+        <div class="image-upload-container">
+          <div class="image-upload" *ngFor="let i of [0,1,2,3]">
+            <input type="file" class="input grid sm:block lg:grid xl:block input-bordered w-full max-w-xs" (change)="onFileSelected($event, i)">
+            <img [src]="property.images[i] || 'assets/Frame 1450.png'" alt="Property image">
+          </div>
+        </div>
+      </div>
+  
+      <button type="submit" class="submit-button">+ Add Property</button>
+    </form>
+  </div>
