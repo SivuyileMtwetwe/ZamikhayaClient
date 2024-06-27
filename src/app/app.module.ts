@@ -56,8 +56,12 @@ import { BusinessComponent } from './BusinessComponents/business/business.compon
     PropertyDetailComponent,
     FavouriteComponent,
     MessagesComponent,
-    ListingComponent
-    MessagesComponent,
+    ListingComponent,
+    HomeviewComponent,
+    AddPropertyComponent,
+    BusinessComponent,
+    MapviewComponent,
+    DashboardComponent
   
    
   ],
