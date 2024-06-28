@@ -34,6 +34,7 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
 import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 import { BusinessComponent } from './BusinessComponents/business/business.component';
+import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { BusinessComponent } from './BusinessComponents/business/business.compon
     AddPropertyComponent,
     BusinessComponent,
     MapviewComponent,
-    DashboardComponent
+    DashboardComponent,
+    ListDetailComponent
   
    
   ],

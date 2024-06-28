@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PropertyService } from '../../Services/property.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listing',
@@ -11,12 +12,19 @@ export class ListingComponent {
 
   constructor(
     private propertyService: PropertyService,
+    private router: Router
+
   ) {}
 
   ngOnInit(): void {
     this.getAllProperties();
     
   }
+
+  onSelect(id: string): void {
+    this.router.navigate(['/list-detail', id]);
+  }
+
 
   getAllProperties(): void {
     this.propertyService.getAllProperties().subscribe({

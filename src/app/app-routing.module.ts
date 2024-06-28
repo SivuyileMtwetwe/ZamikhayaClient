@@ -17,6 +17,7 @@ import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.com
 import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 import { MapviewComponent } from './Components/mapview/mapview.component';
+import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
   {path: 'favourite',component: FavouriteComponent},
   {path:'messages', component:MessagesComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: 'listing', component:ListingComponent}
+  { path: 'listing', component:ListingComponent},
+  {path: 'list-detail/:id', component:ListDetailComponent }
 ];
 
 @NgModule({
