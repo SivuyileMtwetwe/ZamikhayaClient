@@ -48,7 +48,7 @@
         <label>Add images</label>
         <div class="image-upload-container">
           <div class="image-upload" *ngFor="let i of [0,1,2,3]">
-            <input type="file" class="input grid sm:block lg:grid xl:block input-bordered w-full max-w-xs" (change)="onFileSelected($event, i)">
+            <input type="file" class="input grid sm:block lg:grid xl:block input-bordered w-full max-w-xs" (change)="onFileSelected($event)">
             <img [src]="property.images[i] || 'assets/Frame 1450.png'" alt="Property image">
           </div>
         </div>
