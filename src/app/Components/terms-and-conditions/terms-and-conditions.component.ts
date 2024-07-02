@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-terms-and-conditions',
@@ -8,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class TermsAndConditionsComponent implements OnInit {
   showModal: boolean = false;
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute) {}
 
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      if (params['/signup']) { 
+        this.showModal = true;
+      }
+    });
   }
 
   openModal() {
