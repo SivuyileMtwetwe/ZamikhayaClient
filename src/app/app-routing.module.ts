@@ -17,7 +17,7 @@ import { DashboardComponent } from './BusinessComponents/dashboard/dashboard.com
 import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 import { MapviewComponent } from './Components/mapview/mapview.component';
-import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
+import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
 
 
 const routes: Routes = [
@@ -41,7 +41,7 @@ const routes: Routes = [
   {path:'messages', component:MessagesComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'listing', component:ListingComponent},
-  { path: 'terms-and-conditions', component:TermsAndConditionsComponent},
+  {path: 'list-detail/:id', component:ListDetailComponent }
 ];
 
 @NgModule({

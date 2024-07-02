@@ -1,13 +1,19 @@
 
 <div class="fliter">
   <div>
-    
-      <select [(ngModel)]="selectedLocation" (change)="filterByLocation(selectedLocation)">
-        <option  *ngFor="let location of locations" [value]="location">
+
+    <select class="select select-bordered select-xs  max-w-xs py-4" [(ngModel)]="selectedLocation" (change)="filterByLocation(selectedLocation)">
+      <option selected> Choose location</option>
+      <option  *ngFor="let location of locations" [value]="location">
           {{location}}
         </option>
-      </select>
-    </div>
+      
+    </select>
+    
+      <!-- <select [(ngModel)]="selectedLocation" (change)="filterByLocation(selectedLocation)">
+        
+      </select>-->
+    </div> 
     
 </div>
   

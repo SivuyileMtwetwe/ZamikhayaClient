@@ -34,7 +34,7 @@ import { ListingComponent } from './BusinessComponents/listing/listing.component
 import { HomeviewComponent } from './BusinessComponents/homeview/homeview.component';
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 import { BusinessComponent } from './BusinessComponents/business/business.component';
-import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
+import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
 
 
 @NgModule({
@@ -57,13 +57,14 @@ import { TermsAndConditionsComponent } from './Components/terms-and-conditions/t
     FavouriteComponent,
     MessagesComponent,
     ListingComponent,
-    MessagesComponent,
-    DashboardComponent,
     HomeviewComponent,
     AddPropertyComponent,
-   MapviewComponent,
-   BusinessComponent,
-   TermsAndConditionsComponent
+    BusinessComponent,
+    MapviewComponent,
+    DashboardComponent,
+    ListDetailComponent
+  
+   
   ],
 
   imports: [ 
