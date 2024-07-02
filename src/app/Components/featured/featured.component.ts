@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PropertyService } from '../../Services/property.service';
+import { PropertyService } from '../../Services/Property/property.service';
 
 @Component({
   selector: 'app-featured',

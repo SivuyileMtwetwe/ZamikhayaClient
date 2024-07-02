@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PropertyService } from '../../Services/property.service';
+import { PropertyService } from '../../Services/Property/property.service';
 import { Router } from '@angular/router';
 
 @Component({

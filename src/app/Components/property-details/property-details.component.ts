@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PropertyService } from '../../Services/property.service';
+import { PropertyService } from '../../Services/Property/property.service';
 import { Location } from '@angular/common';
 
 
