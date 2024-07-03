@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { SignupComponent } from './Components/signup/signup.component';
@@ -75,7 +76,8 @@ import { TermsAndConditionsComponent } from './Components/terms-and-conditions/t
     BrowserAnimationsModule,
     AppRoutingModule,
     NgFor,  
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   
