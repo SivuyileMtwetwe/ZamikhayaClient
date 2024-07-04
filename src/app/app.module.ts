@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
@@ -62,7 +62,12 @@ import { ListDetailComponent } from './BusinessComponents/list-detail/list-detai
     BusinessComponent,
     MapviewComponent,
     DashboardComponent,
-    ListDetailComponent
+    ListDetailComponent,
+    // BottomNavComponent,
+   
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    // MatFormFieldModule,
   
    
   ],
@@ -73,8 +78,8 @@ import { ListDetailComponent } from './BusinessComponents/list-detail/list-detai
     BrowserAnimationsModule,
     AppRoutingModule,
     NgFor,  
-    HttpClientModule
-    
+    HttpClientModule,
+     GoogleMapsModule,
   ],
   
   providers: [],
