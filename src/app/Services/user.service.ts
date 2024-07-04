@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:5007';
+  private baseUrl = 'http://localhost:5007/zam';
 
   constructor(private http: HttpClient) { }
 

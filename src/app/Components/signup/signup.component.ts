@@ -12,6 +12,7 @@ import { UserService } from '../../Services/user.service';
 export class SignupComponent {
   signupForm: FormGroup;
   errorMessage: string = '';
+  successMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -31,13 +32,16 @@ export class SignupComponent {
       this.userService.signup(name, email, password).subscribe(
         (response: any) => {
           console.log('Sign-up successful', response);
-          this.router.navigate(['/signin']);
+          this.successMessage = 'Sign-up successful! Redirecting to sign-in page...';
+          setTimeout(() => {
+            this.router.navigate(['/signin']);
+          }, 2000);
         },
-        (error: { error: { message: string; }; }) => {
-          console.error('Sign-up failed', error);
-          console.error('Error details:', error.error);
-          this.errorMessage = error.error.message || 'An error occurred during sign-up';
-        }
+        // (error: { error: { message: string; }; }) => {
+        //   console.error('Sign-up failed', error);
+        //   console.error('Error details:', error.error);
+        //   this.errorMessage = error.error.message || 'An error occurred during sign-up';
+        // }
       );
     }
   }
