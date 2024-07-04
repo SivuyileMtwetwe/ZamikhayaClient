@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { PropertyService } from '../../Services/property.service';
+import { PropertyService } from '../../Services/Property/property.service';
 
 
 @Component({

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
@@ -66,6 +67,11 @@ import { TermsAndConditionsComponent } from './Components/terms-and-conditions/t
     DashboardComponent,
     ListDetailComponent,
     TermsAndConditionsComponent
+    // BottomNavComponent,
+   
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    // MatFormFieldModule,
   
    
   ],
@@ -77,8 +83,9 @@ import { TermsAndConditionsComponent } from './Components/terms-and-conditions/t
     AppRoutingModule,
     NgFor,  
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
+     GoogleMapsModule
   ],
   
   providers: [],
