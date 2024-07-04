@@ -1,5 +1,4 @@
-// signin.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
@@ -9,40 +8,36 @@ import { AuthService } from '../../Services/Auth/auth.service';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit {
   signinForm: FormGroup;
   errorMessage: string = '';
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router
   ) {
-    this.signinForm = this.fb.group({
+    this.signinForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', Validators.required],
       remember: [false]
     });
   }
 
-  onSignin() {
+  ngOnInit(): void {}
+
+  onSignin(): void {
     if (this.signinForm.valid) {
       const { email, password } = this.signinForm.value;
-      this.authService.signIn(email, password).subscribe( {
-        next:(response: any) => {
-          console.log('Sign-in successful', response);
-          // You might want to store the token or user info here
-          // localStorage.setItem('token', response.token);
+      this.authService.signIn(email, password).subscribe(
+        (        response: any) => {
+          console.log('Signin successful', response);
           this.router.navigate(['/homepage']);
-      }
-        
-        
         },
-        // (error: { error: { message: string; }; }) => {
-        //   console.error('Sign-in failed', error);
-        //   console.error('Error details:', error.error);
-        //   this.errorMessage = error.error.message || 'An error occurred during sign-in';
-        // }
+        (        error: { error: { message: string; }; }) => {
+          console.error('Signin error', error);
+          this.errorMessage = error.error.message || 'An error occurred during signin';
+        }
       );
     }
   }
