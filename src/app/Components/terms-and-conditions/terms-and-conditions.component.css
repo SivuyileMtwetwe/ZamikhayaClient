@@ -1,0 +1,15 @@
+.privacy-policy-content {
+    /* Add your custom styles for font size, line height, etc. */
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  a{
+    color: #00bfa5;
+    text-decoration: underline;
+  }
+
+  a:hover{
+    color: blueviolet;
+    
+  }
