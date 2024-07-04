@@ -28,18 +28,21 @@ export class SigninComponent {
   onSignin() {
     if (this.signinForm.valid) {
       const { email, password } = this.signinForm.value;
-      this.authService.signIn(email, password).subscribe(
-        (response: any) => {
+      this.authService.signIn(email, password).subscribe( {
+        next:(response: any) => {
           console.log('Sign-in successful', response);
           // You might want to store the token or user info here
           // localStorage.setItem('token', response.token);
           this.router.navigate(['/homepage']);
+      }
+        
+        
         },
-        (error: { error: { message: string; }; }) => {
-          console.error('Sign-in failed', error);
-          console.error('Error details:', error.error);
-          this.errorMessage = error.error.message || 'An error occurred during sign-in';
-        }
+        // (error: { error: { message: string; }; }) => {
+        //   console.error('Sign-in failed', error);
+        //   console.error('Error details:', error.error);
+        //   this.errorMessage = error.error.message || 'An error occurred during sign-in';
+        // }
       );
     }
   }

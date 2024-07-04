@@ -13,7 +13,7 @@ interface LoginResponse {
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:5007/';
+  private baseUrl = 'http://localhost:5007';
 
   constructor(private http: HttpClient) {}
 
