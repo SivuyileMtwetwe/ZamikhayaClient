@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { AuthService } from '../../services/Auth/auth.service'; // Assuming the module file is named 'auth.service.ts' and located in the 'services' folder
+import { AuthService } from '../../Services/Auth/auth.service'; // Assuming the module file is named 'auth.service.ts' and located in the 'services' folder
 
 describe('AuthService', () => {
   let service: AuthService;
