@@ -19,6 +19,7 @@ import { AddPropertyComponent } from './BusinessComponents/add-property/add-prop
 import { MapviewComponent } from './Components/mapview/mapview.component';
 import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
 import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
+import { SelectRoleComponent } from './Components/select-role/select-role.component';
 
 
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'listing', component:ListingComponent},
   {path: 'list-detail/:id', component:ListDetailComponent },
-  { path: 'terms-and-conditions', component:TermsAndConditionsComponent}
+  { path: 'terms-and-conditions', component:TermsAndConditionsComponent},
+  { path: 'select-role', component:SelectRoleComponent},
 ];
 
 @NgModule({

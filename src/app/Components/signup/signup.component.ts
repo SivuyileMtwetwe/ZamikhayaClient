@@ -29,16 +29,17 @@ export class SignupComponent implements OnInit {
   onSignup(): void {
     if (this.signupForm.valid) {
       const { name, email, password } = this.signupForm.value;
-      this.authService.signUp(name, email, password).subscribe(
-        (        response: any) => {
+      this.authService.signUp(name, email, password).subscribe({
+
+       next: (        response: any) => {
           console.log('Signup successful', response);
           this.router.navigate(['/signin']);
         },
-        (        error: { error: { message: string; }; }) => {
-          console.error('Signup error', error);
-          this.errorMessage = error.error.message || 'An error occurred during signup';
-        }
-      );
+        // (        error: { error: { message: string; }; }) => {
+        //   console.error('Signup error', error);
+        //   this.errorMessage = error.error.message || 'An error occurred during signup';
+        // }
+    });
     }
   }
 }
