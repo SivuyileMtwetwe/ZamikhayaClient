@@ -7,10 +7,9 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-details.component.html',
-  // styleUrls: ['./property-details.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
-  // selectedProperty?: Property;
+
   property: any
 
   constructor(
@@ -20,10 +19,7 @@ export class PropertyDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = String(this.route.snapshot.paramMap.get('id'));
-    if (id) {
-      this.viewProperty(id);
-    }
+    
   }
   addToFavList(property: any): void {
     this.propertyService.addToFavlist(property)
@@ -34,7 +30,8 @@ export class PropertyDetailComponent implements OnInit {
     this._location.back()
   }
 
-  viewProperty(id: string): void {
+  viewProperty(): void {
+    const id = String(this.route.snapshot.paramMap.get('id'));
     this.propertyService.getPropertyById(id).subscribe({
       next: (data: any[]) => {
         this.property = data;
@@ -45,15 +42,4 @@ export class PropertyDetailComponent implements OnInit {
     });
   }
 
-  // getProperty(): void {
-  //   const propertyId = Number(this._route.snapshot.paramMap.get('id'));
-  //   this._propertyService.getAllProperties().subscribe({
-  //     next: (data: any[]) => {
-  //       const property = data.find((el: any)=> el._id.includes(propertyId));
-  //       this.selectedProperty = property
-  //       console.log(data)       
-  //     },
-  //     error: (err) => console.error(err)
-  //   });
-  // }
 }
