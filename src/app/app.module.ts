@@ -37,12 +37,9 @@ import { HomeviewComponent } from './BusinessComponents/homeview/homeview.compon
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 import { BusinessComponent } from './BusinessComponents/business/business.component';
 import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
-<<<<<<< HEAD
+import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 import { SelectRoleComponent } from './Components/select-role/select-role.component';
-=======
-import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
->>>>>>> 233910b88360c2004ee275151d3c51255b4ceca4
 
 
 @NgModule({
@@ -71,18 +68,9 @@ import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component
     MapviewComponent,
     DashboardComponent,
     ListDetailComponent,
-<<<<<<< HEAD
     TermsAndConditionsComponent,
     SelectRoleComponent,
- 
-    // BottomNavComponent,
-   
-    // MatDatepickerModule,
-    // MatNativeDateModule,
-    // MatFormFieldModule,
-=======
     BottomNavComponent
->>>>>>> 233910b88360c2004ee275151d3c51255b4ceca4
   
    
   ],
@@ -96,7 +84,7 @@ import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component
     HttpClientModule,
     ReactiveFormsModule,
     
-     GoogleMapsModule
+    GoogleMapsModule
   ],
   
   providers: [],
