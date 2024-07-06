@@ -8,15 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesComponent implements OnInit {
-  onSelect(id: string): void {
-    this.router.navigate(['/property-details', id]);
-  }
-
   isLiked = false;
   selectedLocation: string = 'All Locations';
-  locations: string[] = [
-    'All Locations', 'Lower-Luzuko', 'Samora Cape Town', 'Philippi', 'Crossroads'
-  ];
+  locations: string[] = [];
   filteredItems: any[] = [];
   properties: any[] = [];
 
@@ -39,8 +33,16 @@ export class PropertiesComponent implements OnInit {
       next: (res: any) => {
         this.properties = res;
         this.filteredItems = res;
+        this.extractLocations();
       },
     });
+  }
+
+  extractLocations(): void {
+    const allLocations = this.properties.map(property => property.location);
+    this.locations = Array.from(new Set(allLocations)).sort();
+    this.locations.unshift('All Locations');
+    this.filteredLocations = this.locations;
   }
 
   filterByLocation(selectedLocation: string): void {
@@ -84,5 +86,9 @@ export class PropertiesComponent implements OnInit {
         this.showDropdown = false;
       }
     }
+  }
+
+  onSelect(id: string): void {
+    this.router.navigate(['/property-details', id]);
   }
 }
