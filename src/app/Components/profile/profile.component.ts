@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../../Interfaces/user';
 
 @Component({
   selector: 'app-profile',

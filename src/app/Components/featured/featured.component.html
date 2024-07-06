@@ -1,8 +1,8 @@
-<div class="carousel-container max-w-md p-4 bg-neutral rounded-box">
-  <h2 class="font-poppins text-lg mb-4">Featured</h2>
-  <div class="carousel carousel-center space-x-4" #carousel>
-    <div class="carousel-item" *ngFor="let image of images">
-      <img [src]="image" class="rounded-box" />
-    </div>
+
+<div class="carousel rounded-box w-96 p-10">
+  <div class="carousel-item w-1/2" *ngFor="let image of images">
+    <img
+     [src]="image[0]"
+      class="w-full" />
   </div>
 </div>

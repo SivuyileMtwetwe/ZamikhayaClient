@@ -1,19 +1,47 @@
-import { Component } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../Services/Auth/auth.service';
+import { User } from '../../Interfaces/user';
+import { Signin } from '../../Interfaces/signin';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit {
+  signinForm: FormGroup;
+  errorMessage: string = '';
 
-  constructor(private _location: Location) { }
-  onSignin() {
-    console.log('Signin form submitted');
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.signinForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      remember: [false]
+    });
   }
 
-  goBack(){
-    this._location.back()
+  ngOnInit(): void {}
+
+  onSignin(data:Signin): void {
+    if (this.signinForm.valid) {
+      const { email, password } = this.signinForm.value;
+      this.authService.signIn(data).subscribe({
+
+        next: (        response: User) => {
+          console.log('Signin successful', response);
+          this.router.navigate(['/homepage']);
+        },
+        // (        error: { error: { message: string; }; }) => {
+        //   console.error('Signin error', error);
+        //   this.errorMessage = error.error.message || 'An error occurred during signin';
+        // }
+    });
+    }
   }
 }
