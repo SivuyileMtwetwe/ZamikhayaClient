@@ -12,6 +12,7 @@ interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
+  [x: string]: any;
 
   private baseUrl = 'http://localhost:5007/zam';
 

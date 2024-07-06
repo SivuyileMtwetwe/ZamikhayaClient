@@ -29,16 +29,17 @@ export class SigninComponent implements OnInit {
   onSignin(): void {
     if (this.signinForm.valid) {
       const { email, password } = this.signinForm.value;
-      this.authService.signIn(email, password).subscribe(
-        (        response: any) => {
+      this.authService.signIn(email, password).subscribe({
+
+        next: (        response: any) => {
           console.log('Signin successful', response);
           this.router.navigate(['/homepage']);
         },
-        (        error: { error: { message: string; }; }) => {
-          console.error('Signin error', error);
-          this.errorMessage = error.error.message || 'An error occurred during signin';
-        }
-      );
+        // (        error: { error: { message: string; }; }) => {
+        //   console.error('Signin error', error);
+        //   this.errorMessage = error.error.message || 'An error occurred during signin';
+        // }
+    });
     }
   }
 }

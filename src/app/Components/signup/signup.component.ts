@@ -1,21 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+// signup.component.ts
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
+import { SharedService } from '../../Services/Shared/shared.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
   signupForm: FormGroup;
   errorMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {
     this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -24,15 +27,14 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
   onSignup(): void {
     if (this.signupForm.valid) {
       const { name, email, password } = this.signupForm.value;
       this.authService.signUp(name, email, password).subscribe(
         (        response: any) => {
           console.log('Signup successful', response);
-          this.router.navigate(['/signin']);
+          this.sharedService.setShowTerms(true);
+          this.router.navigate(['/terms-and-conditions']);
         },
         (        error: { error: { message: string; }; }) => {
           console.error('Signup error', error);

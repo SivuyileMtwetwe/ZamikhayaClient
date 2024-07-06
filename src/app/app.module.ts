@@ -38,6 +38,7 @@ import { AddPropertyComponent } from './BusinessComponents/add-property/add-prop
 import { BusinessComponent } from './BusinessComponents/business/business.component';
 import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
 import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
+import { SelectRoleComponent } from './Components/select-role/select-role.component';
 
 
 @NgModule({
@@ -66,7 +67,9 @@ import { TermsAndConditionsComponent } from './Components/terms-and-conditions/t
     MapviewComponent,
     DashboardComponent,
     ListDetailComponent,
-    TermsAndConditionsComponent
+    TermsAndConditionsComponent,
+    SelectRoleComponent,
+ 
     // BottomNavComponent,
    
     // MatDatepickerModule,
