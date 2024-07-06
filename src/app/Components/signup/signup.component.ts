@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
 import { SharedService } from '../../Services/Shared/shared.service';
+import { User } from '../../Interfaces/user';
+import { Signup } from '../../Interfaces/signup';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +15,8 @@ import { SharedService } from '../../Services/Shared/shared.service';
 export class SignupComponent {
   signupForm: FormGroup;
   errorMessage: string = '';
-
+  data!: Signup;
+  
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -29,17 +32,17 @@ export class SignupComponent {
 
   onSignup(): void {
     if (this.signupForm.valid) {
-      const { name, email, password } = this.signupForm.value;
-      this.authService.signUp(name, email, password).subscribe(
-        (        response: any) => {
+      const {data} = this.signupForm.value;
+      this.authService.signUp(data).subscribe(
+        (        response: User) => {
           console.log('Signup successful', response);
           this.sharedService.setShowTerms(true);
           this.router.navigate(['/terms-and-conditions']);
         },
-        (        error: { error: { message: string; }; }) => {
-          console.error('Signup error', error);
-          this.errorMessage = error.error.message || 'An error occurred during signup';
-        }
+        // (        error: { error: { message: string; }; }) => {
+        //   console.error('Signup error', error);
+        //   this.errorMessage = error.error.message || 'An error occurred during signup';
+        // }
       );
     }
   }

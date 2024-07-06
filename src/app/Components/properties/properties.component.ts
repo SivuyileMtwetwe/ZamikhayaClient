@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertyService } from '../../Services/Property/property.service';
 import { Router } from '@angular/router';
+import { Property } from '../../Interfaces/property';
 
 @Component({
   selector: 'app-properties',
@@ -12,7 +13,7 @@ export class PropertiesComponent implements OnInit {
   selectedLocation: string = 'All Locations';
   locations: string[] = [];
   filteredItems: any[] = [];
-  properties: any[] = [];
+  properties: Property[] = [];
 
   searchQuery: string = '';
   filteredLocations: string[] = this.locations;
@@ -30,7 +31,7 @@ export class PropertiesComponent implements OnInit {
 
   getAllProperties(): void {
     this.propertyService.getAllProperties().subscribe({
-      next: (res: any) => {
+      next: (res: Property[]) => {
         this.properties = res;
         this.filteredItems = res;
         this.extractLocations();

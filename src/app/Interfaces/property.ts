@@ -1,13 +1,13 @@
 export interface Property {
-    id: String;
-    type: String;
-    location: String;
-    parking: String;
-    rooms: String;
-    electricity: String;
-    bathroom: String;
-    price: String;
-    description: String;
-    images: Array<String>;
-    landlord: String;
+    id: string;
+    type: string;
+    location: string;
+    parking: string;
+    rooms: string;
+    electricity: string;
+    bathroom: string;
+    price: string;
+    description: string;
+    images: string[];
+    landlord: string;
 }
