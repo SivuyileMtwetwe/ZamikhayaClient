@@ -19,7 +19,7 @@ export class PropertyDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+    this.viewProperty()
   }
   addToFavList(property: any): void {
     this.propertyService.addToFavlist(property)
