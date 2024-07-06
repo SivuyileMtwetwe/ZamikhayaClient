@@ -9,7 +9,7 @@ import { AuthService } from '../Auth/auth.service';
 })
 export class PropertyService {
   
-   apiUrl = 'http://localhost:5007/zam';
+   apiUrl = 'http://localhost:5007/zam/properties';
     
    favCount = new BehaviorSubject<number>(0);
    favList: any[] =[];
