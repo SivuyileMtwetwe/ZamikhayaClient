@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
 import { SharedService } from '../../Services/Shared/shared.service';
+import { User } from '../../Interfaces/user';
 
 @Component({
   selector: 'app-signup',
@@ -31,15 +32,15 @@ export class SignupComponent {
     if (this.signupForm.valid) {
       const { name, email, password } = this.signupForm.value;
       this.authService.signUp(name, email, password).subscribe(
-        (        response: any) => {
+        (        response: User) => {
           console.log('Signup successful', response);
           this.sharedService.setShowTerms(true);
           this.router.navigate(['/terms-and-conditions']);
         },
-        (        error: { error: { message: string; }; }) => {
-          console.error('Signup error', error);
-          this.errorMessage = error.error.message || 'An error occurred during signup';
-        }
+        // (        error: { error: { message: string; }; }) => {
+        //   console.error('Signup error', error);
+        //   this.errorMessage = error.error.message || 'An error occurred during signup';
+        // }
       );
     }
   }

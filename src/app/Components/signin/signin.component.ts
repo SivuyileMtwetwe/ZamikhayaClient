@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
+import { User } from '../../Interfaces/user';
 
 @Component({
   selector: 'app-signin',
@@ -31,7 +32,7 @@ export class SigninComponent implements OnInit {
       const { email, password } = this.signinForm.value;
       this.authService.signIn(email, password).subscribe({
 
-        next: (        response: any) => {
+        next: (        response: User) => {
           console.log('Signin successful', response);
           this.router.navigate(['/homepage']);
         },

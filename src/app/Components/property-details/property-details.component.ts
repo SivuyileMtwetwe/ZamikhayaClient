@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../../Services/Property/property.service';
 import { Location } from '@angular/common';
+import { Property } from '../../Interfaces/property';
 
 
 @Component({
@@ -9,19 +10,18 @@ import { Location } from '@angular/common';
   templateUrl: './property-details.component.html',
 })
 export class PropertyDetailComponent implements OnInit {
-
-  property: any
-
+  property?: Property;
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
-    private _location : Location
+    private _location : Location,
+
   ) { }
 
   ngOnInit(): void {
     this.viewProperty()
   }
-  addToFavList(property: any): void {
+  addToFavList(property: Property): void {
     this.propertyService.addToFavlist(property)
     console.log("Added to faves")
   }
@@ -33,7 +33,7 @@ export class PropertyDetailComponent implements OnInit {
   viewProperty(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
     this.propertyService.getPropertyById(id).subscribe({
-      next: (data: any[]) => {
+      next: (data: Property) => {
         this.property = data;
       },
       error: (error) => {
