@@ -69,6 +69,7 @@ import { SelectRoleComponent } from './Components/select-role/select-role.compon
     ListDetailComponent,
     TermsAndConditionsComponent,
     SelectRoleComponent,
+ 
     // BottomNavComponent,
    
     // MatDatepickerModule,
