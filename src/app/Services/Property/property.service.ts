@@ -34,6 +34,9 @@ export class PropertyService {
       console.log("Property already exists in favlist!");
     }
   }
+  addProperty(property: any): Observable<any> {
+    return this._http.post<any>(this.apiUrl, property);
+  }
 
   getPropertyById(id: string): Observable<any> {
     return this._http.get<any>(`${this.apiUrl}/${id}`);
