@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
 import { User } from '../../Interfaces/user';
+import { Signin } from '../../Interfaces/signin';
 
 @Component({
   selector: 'app-signin',
@@ -27,10 +28,10 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSignin(): void {
+  onSignin(data:Signin): void {
     if (this.signinForm.valid) {
       const { email, password } = this.signinForm.value;
-      this.authService.signIn(email, password).subscribe({
+      this.authService.signIn(data).subscribe({
 
         next: (        response: User) => {
           console.log('Signin successful', response);
