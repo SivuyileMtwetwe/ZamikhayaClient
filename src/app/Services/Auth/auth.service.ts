@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Signup } from '../../Interfaces/signup';
 
 interface LoginResponse {
   token: string;
@@ -28,8 +29,8 @@ export class AuthService {
     );
   }
 
-  signUp(name: string, email: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, { email, password,name });
+  signUp(data: Signup): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register`, {data});
   }
 
   checkUserExists(email: string): Observable<boolean> {
