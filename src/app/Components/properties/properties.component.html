@@ -60,7 +60,7 @@
 class=" flex-col p-6  min-w-screen h-auto animated fadeIn faster  left-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none" *ngFor="let property of filteredItems"  (click)="onSelect(property.id)">
 <div class="block rounded-lg bg-white w-72">
 <div class="relative overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init data-te-ripple-color="light">
-  <img class="rounded-lg  sm:m-h-64 md:h-64 w-full" [src]="property.images" alt="" />
+  <img class="rounded-lg  sm:m-h-64 md:h-64 w-full" [src]="property.images[0]" alt="" />
   <a (click)="onSelect(property.id)">
     <div
       class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
