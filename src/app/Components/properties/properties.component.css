@@ -1,0 +1,16 @@
+/* styles.css */
+.custom-option {
+    background-color: black;
+    color: white;
+    
+  }
+
+  .custom-option:checked {
+    background-color: white;
+    color: black;
+  }
+
+  .custom-option:hover{
+    background-color: gray;
+    color: white;
+  }

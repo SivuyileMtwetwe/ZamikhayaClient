@@ -2,30 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../../Services/Property/property.service';
 import { Location } from '@angular/common';
+import { Property } from '../../Interfaces/property';
 
 
 @Component({
   selector: 'app-property-detail',
   templateUrl: './property-details.component.html',
-  // styleUrls: ['./property-details.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
-  // selectedProperty?: Property;
-  property: any
-
+  property?: Property;
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
-    private _location : Location
+    private _location : Location,
+
   ) { }
 
   ngOnInit(): void {
-    const id = String(this.route.snapshot.paramMap.get('id'));
-    if (id) {
-      this.viewProperty(id);
-    }
+    this.viewProperty()
   }
-  addToFavList(property: any): void {
+  addToFavList(property: Property): void {
     this.propertyService.addToFavlist(property)
     console.log("Added to faves")
   }
@@ -34,9 +30,10 @@ export class PropertyDetailComponent implements OnInit {
     this._location.back()
   }
 
-  viewProperty(id: string): void {
+  viewProperty(): void {
+    const id = String(this.route.snapshot.paramMap.get('id'));
     this.propertyService.getPropertyById(id).subscribe({
-      next: (data: any[]) => {
+      next: (data: Property) => {
         this.property = data;
       },
       error: (error) => {
@@ -45,15 +42,4 @@ export class PropertyDetailComponent implements OnInit {
     });
   }
 
-  // getProperty(): void {
-  //   const propertyId = Number(this._route.snapshot.paramMap.get('id'));
-  //   this._propertyService.getAllProperties().subscribe({
-  //     next: (data: any[]) => {
-  //       const property = data.find((el: any)=> el._id.includes(propertyId));
-  //       this.selectedProperty = property
-  //       console.log(data)       
-  //     },
-  //     error: (err) => console.error(err)
-  //   });
-  // }
 }

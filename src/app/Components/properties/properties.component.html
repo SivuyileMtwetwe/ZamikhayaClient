@@ -1,23 +1,38 @@
-
-<div class="fliter">
+<div class="filter relative">
   <div>
-
-    <select class="select select-bordered select-xs  max-w-xs py-4" [(ngModel)]="selectedLocation" (change)="filterByLocation(selectedLocation)">
-      <option selected> Choose location</option>
-      <option  *ngFor="let location of locations" [value]="location">
-          {{location}}
-        </option>
-      
-    </select>
-    
-      <!-- <select [(ngModel)]="selectedLocation" (change)="filterByLocation(selectedLocation)">
-        
-      </select>-->
-    </div> 
-    
+    <label for="location_search" class="sr-only">Search or select a location</label>
+    <input
+      id="location_search"
+      type="text"
+      class="block w-full py-2.5 px-4 text-sm text-gray-500 bg-transparent border border-gray-200 rounded-md focus:outline-none focus:ring-0 focus:border-gray-400 dark:text-gray-400 dark:border-gray-700 dark:focus:border-gray-500 peer"
+      placeholder="Search or choose a location"
+      [(ngModel)]="searchQuery"
+      (input)="filterLocations()"
+      (focus)="showDropdown = true"
+      (blur)="onBlur()"
+      (keydown)="onKeydown($event)"
+    />
+  </div>
+  <div
+    class="absolute left-0 w-full bg-white border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:shadow-lg rounded-lg mt-1 z-10"
+    *ngIf="showDropdown && filteredLocations.length > 0"
+  >
+    <ul class="max-h-60 overflow-y-auto">
+      <li
+        *ngFor="let location of filteredLocations; let i = index"
+        class="py-2 px-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+        [class.bg-gray-100]="i === highlightedIndex"
+        (click)="selectLocation(location)"
+      >
+        {{ location }}
+      </li>
+    </ul>
+  </div>
 </div>
-  
-  <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 " *ngFor="let property of filteredItems">
+
+
+
+  <!-- <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 " *ngFor="let property of filteredItems">
       <img class="p-8 rounded-t-lg" [src]="property.images" alt="product image" />
     <div class="px-5 pb-5">
       <a >
@@ -25,18 +40,76 @@
       </a>
       <div class="flex items-center mt-2.5 mb-5">
         <div class="flex items-center space-x-1 rtl:space-x-reverse">
+
           <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
             <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
+          </svg> 
+          <label class="swap">
+            <input type="checkbox" />
+            <div class="swap-on">
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+            </svg>
+            </div>
+            <div class="swap-off">
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
+            </svg>
+            </div>
+          </label>
+
+
         </div>
         <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ property.type }}</span>
       </div>
       <p class="font-sans tracking-tight font-bold">{{ property.location}}</p>
       <div class="flex items-center justify-between mt-3">
-         <span class="text-3m font-bold text-gray-900 dark:text-white">R{{property.price}}</span>
+         <span class="text-3m font-bold text-gray-900 dark:text-white"></span>
         <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="onSelect(property.id)">View</a>
-      </div>
+      </div>R{{property.price}}
     </div>
+  </div> -->
+
+  <!-- component -->
+<div
+class=" flex-col p-6  min-w-screen h-auto animated fadeIn faster  left-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none" *ngFor="let property of filteredItems"  (click)="onSelect(property.id)">
+<div class="block rounded-lg bg-white w-72">
+<div class="relative overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init data-te-ripple-color="light">
+  <img class="rounded-lg  sm:m-h-64 md:h-64 w-full" [src]="property.images[0]" alt="" />
+  <a (click)="onSelect(property.id)">
+    <div
+      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+    </div>
+  </a>
+</div>
+
+<div class="p-2">
+  <div class="flex justify-between">
+    <h5 class="mb-2 text-sm font-bold leading-tight text-neutral-800 dark:text-neutral-50">
+       {{ property.type }}
+    </h5>
+    <h5 class="mb-2 text-sm font-bold leading-tight text-neutral-800 dark:text-neutral-50 flex">
+      <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+        <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
+      </svg>
+      
+
+    </h5>
   </div>
+  <p class="mb-1 text-sm text-neutral-600 dark:text-neutral-200">
+    {{ property.location}}
+  </p>
+
+  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+    {{ property.timestamps }}
+  </p>
+  <h5 class="mb-0 text-sm font-bold leading-tight text-neutral-800 dark:text-neutral-50">
+    R{{property.price}}
+  </h5>
+</div>
+</div></div>
   
 
+  
+  
+  

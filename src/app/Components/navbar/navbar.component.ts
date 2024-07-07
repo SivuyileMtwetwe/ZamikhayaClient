@@ -11,7 +11,7 @@ import { PropertyService } from '../../Services/Property/property.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  favListCount$ = new BehaviorSubject<number>(0);
+  // favListCount$ = new BehaviorSubject<number>(0);
 
   constructor(
     private router: Router,
@@ -19,7 +19,7 @@ export class NavbarComponent {
   ) {}
 
   ngOnInit():void{ 
-    this.favListCount$ = this.propertyService.favCount
+    // this.favListCount$ = this.propertyService.favCount
   }
 
   signOut() {

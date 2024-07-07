@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { GoogleMapsModule } from '@angular/google-maps';
 
 import { SignupComponent } from './Components/signup/signup.component';
@@ -35,6 +37,9 @@ import { HomeviewComponent } from './BusinessComponents/homeview/homeview.compon
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 import { BusinessComponent } from './BusinessComponents/business/business.component';
 import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
+import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
+import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
+import { SelectRoleComponent } from './Components/select-role/select-role.component';
 
 
 @NgModule({
@@ -63,11 +68,9 @@ import { ListDetailComponent } from './BusinessComponents/list-detail/list-detai
     MapviewComponent,
     DashboardComponent,
     ListDetailComponent,
-    // BottomNavComponent,
-   
-    // MatDatepickerModule,
-    // MatNativeDateModule,
-    // MatFormFieldModule,
+    TermsAndConditionsComponent,
+    SelectRoleComponent,
+    BottomNavComponent
   
    
   ],
@@ -79,7 +82,9 @@ import { ListDetailComponent } from './BusinessComponents/list-detail/list-detai
     AppRoutingModule,
     NgFor,  
     HttpClientModule,
-     GoogleMapsModule,
+    ReactiveFormsModule,
+    
+    GoogleMapsModule
   ],
   
   providers: [],
