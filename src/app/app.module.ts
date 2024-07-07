@@ -40,6 +40,7 @@ import { ListDetailComponent } from './BusinessComponents/list-detail/list-detai
 import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 import { SelectRoleComponent } from './Components/select-role/select-role.component';
+import { BusinessNavComponent } from './BusinessComponents/business-nav/business-nav.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { SelectRoleComponent } from './Components/select-role/select-role.compon
     ListDetailComponent,
     TermsAndConditionsComponent,
     SelectRoleComponent,
-    BottomNavComponent
+    BottomNavComponent,
+    BusinessNavComponent
   
    
   ],
