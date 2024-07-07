@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { PropertyService } from '../../Services/Property/property.service';
 import { AuthService } from '../../Services/Auth/auth.service'; 
 import { Router } from '@angular/router';
+import { GetPropertyGeolocationService } from '../../Services/get-property-geolocation.service';
 
 @Component({
   selector: 'app-add-property',
@@ -26,13 +27,14 @@ export class AddPropertyComponent implements OnInit {
   constructor(
     private propertyService: PropertyService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private propertyGeolocation:GetPropertyGeolocationService
   ) {}
 
   ngOnInit() {
-    if (!this.authService.isAuthenticated()) {
-      this.router.navigate(['/login']);
-    }
+    // if (!this.authService.isAuthenticated()) {
+    //   this.router.navigate(['/signin']);
+    // }
   }
 
   onFileSelected(event: any) {
@@ -44,7 +46,7 @@ export class AddPropertyComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
-  onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm) {
     if (form.valid) {
       this.propertyService.createProperty(this.property).subscribe(
         response => {
@@ -55,5 +57,7 @@ export class AddPropertyComponent implements OnInit {
         },
       );
     }
+    
+    
   }
 }
