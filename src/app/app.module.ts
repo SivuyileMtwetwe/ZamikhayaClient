@@ -6,9 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { GoogleMapsModule } from '@angular/google-maps';
-
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { LandingComponent } from './Components/landing/landing.component';
@@ -37,6 +35,7 @@ import { HomeviewComponent } from './BusinessComponents/homeview/homeview.compon
 import { AddPropertyComponent } from './BusinessComponents/add-property/add-property.component';
 import { BusinessComponent } from './BusinessComponents/business/business.component';
 import { ListDetailComponent } from './BusinessComponents/list-detail/list-detail.component';
+import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 import { SelectRoleComponent } from './Components/select-role/select-role.component';
 
@@ -69,12 +68,7 @@ import { SelectRoleComponent } from './Components/select-role/select-role.compon
     ListDetailComponent,
     TermsAndConditionsComponent,
     SelectRoleComponent,
- 
-    // BottomNavComponent,
-   
-    // MatDatepickerModule,
-    // MatNativeDateModule,
-    // MatFormFieldModule,
+    BottomNavComponent
   
    
   ],
@@ -88,7 +82,7 @@ import { SelectRoleComponent } from './Components/select-role/select-role.compon
     HttpClientModule,
     ReactiveFormsModule,
     
-     GoogleMapsModule
+    GoogleMapsModule
   ],
   
   providers: [],

@@ -1,4 +1,3 @@
-// terms-and-conditions.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from '../../Services/Shared/shared.service';
@@ -39,13 +38,11 @@ export class TermsAndConditionsComponent implements OnInit, OnDestroy {
   }
 
   onAccept() {
-    // Handle acceptance logic here
     this.closeModal();
     this.router.navigate(['/signin']);
   }
 
   onDecline() {
-    // Handle decline logic here
     this.closeModal();
     this.router.navigate(['/']);
   }

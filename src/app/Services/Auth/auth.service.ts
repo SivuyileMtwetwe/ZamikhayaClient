@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Signup } from '../../Interfaces/signup';
+import { Signin } from '../../Interfaces/signin';
 
 interface LoginResponse {
   token: string;
@@ -19,8 +20,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  signIn(email: string, password: string): Observable<any> {
-    return this.http.post<LoginResponse>(`${this.baseUrl}/login`, { email, password }).pipe(
+  signIn(data:Signin): Observable<any> {
+    return this.http.post<LoginResponse>(`${this.baseUrl}/login`,data).pipe(
       tap(response => {
         if (response && response.token) {
           localStorage.setItem('token', response.token);
