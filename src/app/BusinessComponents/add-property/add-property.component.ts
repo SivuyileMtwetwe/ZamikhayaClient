@@ -57,7 +57,13 @@ export class AddPropertyComponent implements OnInit {
         },
       );
     }
-    
+     this.propertyGeolocation.GetAddressGeolocation("40 Sir Lowry Road, District Six, Cape Town").subscribe((data) => {
+      
+      if(data){
+        console.log(data.geometry.location.lat)
+        console.log(data.formatted_address)
+      }
+    })
     
   }
 }
