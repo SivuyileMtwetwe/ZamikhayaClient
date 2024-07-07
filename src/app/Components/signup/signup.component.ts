@@ -1,4 +1,3 @@
-// signup.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -39,10 +38,6 @@ export class SignupComponent {
           this.sharedService.setShowTerms(true);
           this.router.navigate(['/terms-and-conditions']);
         },
-        // (        error: { error: { message: string; }; }) => {
-        //   console.error('Signup error', error);
-        //   this.errorMessage = error.error.message || 'An error occurred during signup';
-        // }
       );
     }
   }

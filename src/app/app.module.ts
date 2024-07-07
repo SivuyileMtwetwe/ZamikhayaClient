@@ -6,9 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { GoogleMapsModule } from '@angular/google-maps';
-
 import { SignupComponent } from './Components/signup/signup.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { LandingComponent } from './Components/landing/landing.component';

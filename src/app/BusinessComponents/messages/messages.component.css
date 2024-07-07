@@ -62,7 +62,7 @@
   }
   
   .message-input {
-    border-top: 1px solid #e5e7eb; /* Tailwind CSS gray-200 */
+    border-top: 1px solid #e5e7eb; 
   }
   
   .input {

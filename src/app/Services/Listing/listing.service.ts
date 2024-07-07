@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ListingService {
-  private baseUrl = 'http://your-api-url.com'; // Replace with your API URL
+  private baseUrl = 'http://localhost:5007/zam'; 
 
   constructor(private http: HttpClient) {}
 

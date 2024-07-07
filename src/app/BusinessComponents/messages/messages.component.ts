@@ -9,8 +9,8 @@ import { ChatService } from '../../Services/Chat/chat.service';
 export class MessagesComponent implements OnInit {
   messages: any[] = [];
   newMessage: string = '';
-  currentUser: string = 'Customer'; // or 'Business', depending on the user
-  currentUserAvatar: string = 'https://via.placeholder.com/40'; // Placeholder avatar URL
+  currentUser: string = 'Customer'; 
+  currentUserAvatar: string = 'https://via.placeholder.com/40';
   predefinedMessages: string[] = [
     'Can you provide more details about the property?',
     'Is the price negotiable?',

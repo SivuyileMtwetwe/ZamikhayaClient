@@ -28,8 +28,7 @@ async inItmap(){  const loader = new Loader({
 
 
   ngOnInit():void {
-    this.inItmap()  // Call the function after 2 seconds to avoid the map load error in the first load.
-  //  setTimeout(()=>  this.inItmap(), 2000)
+    this.inItmap()
   }
 
 

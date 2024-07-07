@@ -37,10 +37,6 @@ export class SigninComponent implements OnInit {
           console.log('Signin successful', response);
           this.router.navigate(['/homepage']);
         },
-        // (        error: { error: { message: string; }; }) => {
-        //   console.error('Signin error', error);
-        //   this.errorMessage = error.error.message || 'An error occurred during signin';
-        // }
     });
     }
   }

@@ -1,8 +1,8 @@
-// add-property.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PropertyService } from '../../Services/Property/property.service';
-import { AuthService } from '../../Services/Auth/auth.service'; // Adjust the path as needed
+import { AuthService } from '../../Services/Auth/auth.service'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,7 +30,6 @@ export class AddPropertyComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Check if user is authenticated
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['/login']);
     }
@@ -47,19 +46,13 @@ export class AddPropertyComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      // The user ID will be extracted from the token on the server side
       this.propertyService.createProperty(this.property).subscribe(
         response => {
           console.log('Property added successfully:', response);
           form.reset();
           this.property.images = [];
-          // Optionally, navigate to a success page or property listing
           this.router.navigate(['/homeview']);
         },
-        // error => {
-        //   console.error('Error adding property:', error);
-        //   // Handle error (show message to user, etc.)
-        // }
       );
     }
   }
