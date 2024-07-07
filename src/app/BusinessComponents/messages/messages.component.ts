@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../../Services/Chat/chat.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-messages',
@@ -19,12 +23,19 @@ export class MessagesComponent implements OnInit {
     'What are the terms of the lease?'
   ];
 
-  constructor(private chatService: ChatService) {}
+  constructor(
+    private chatService: ChatService,
+    private _location : Location
+  ) {}
 
   ngOnInit(): void {
     this.chatService.getMessages().subscribe((messages) => {
       this.messages = messages;
     });
+  }
+
+  goBack(){
+    this._location.back()
   }
 
   sendMessage(message?: string) {
