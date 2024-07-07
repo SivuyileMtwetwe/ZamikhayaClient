@@ -14,7 +14,7 @@ export class GetPropertyGeolocationService {
 
    GetAddressGeolocation(address:string):Observable<any>{
     const loader = new Loader({
-      apiKey: "AIzaSyAH5kBQtZIChfN2yS7nJaaDvXfaQqyWo6w",
+      apiKey: "",
       version: "weekly",
     });
 
