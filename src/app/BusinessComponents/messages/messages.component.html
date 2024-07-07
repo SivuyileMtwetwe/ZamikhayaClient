@@ -1,4 +1,5 @@
 <div class="chat-container card bg-base-100 shadow-xl p-4">
+  <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="goBack()"><i class="fa-solid fa-circle-xmark"></i></a>
     <div class="messages-list overflow-y-auto h-80 p-2">
       <div *ngFor="let message of messages" class="chat-message">
         <div class="chat-bubble" [ngClass]="{'chat-end': message.sender === currentUser, 'chat-start': message.sender !== currentUser}">

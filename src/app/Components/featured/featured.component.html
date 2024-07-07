@@ -1,8 +1,8 @@
 
-<div class="carousel rounded-box w-96 p-10">
-  <div class="carousel-item w-1/2" *ngFor="let image of images">
+<div class="carousel box w-96 p-2 bg-gray-500 ">
+  <div class="carousel-item w-1/2 " *ngFor="let image of images">
     <img
      [src]="image[0]"
-      class="w-full" />
+      class="w-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0" />
   </div>
 </div>
