@@ -1,25 +1,25 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PropertyService } from '../../Services/Property/property.service';
-import { AuthService } from '../../Services/Auth/auth.service'; 
-import { Router } from '@angular/router';
 import { GetPropertyGeolocationService } from '../../Services/get-property-geolocation.service';
+import { Router } from 'express';
+import { AuthService } from '../../Services/Auth/auth.service';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-add-property',
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css']
 })
-export class AddPropertyComponent implements OnInit {
+export class AddPropertyComponent {
   property: any = {
     type: '',
     location: '',
     parking: '',
-    rooms: null,
+    rooms: '',
     electricity: '',
     bathroom: '',
-    price: null,
+    price: '',
     description: '',
     images: []
   };
@@ -27,14 +27,14 @@ export class AddPropertyComponent implements OnInit {
   constructor(
     private propertyService: PropertyService,
     private authService: AuthService,
-    private router: Router,
+    private router: Route,
     private propertyGeolocation:GetPropertyGeolocationService
   ) {}
 
   ngOnInit() {
-    // if (!this.authService.isAuthenticated()) {
-    //   this.router.navigate(['/signin']);
-    // }
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+    }
   }
 
   onFileSelected(event: any) {
@@ -46,7 +46,7 @@ export class AddPropertyComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
-  async onSubmit(form: NgForm) {
+  onSubmit(form: NgForm) {
     if (form.valid) {
       this.propertyService.createProperty(this.property).subscribe(
         response => {

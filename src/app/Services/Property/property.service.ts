@@ -35,13 +35,10 @@ export class PropertyService {
       console.log("Property already exists in favlist!");
     }
   }
- 
-  createProperty(property: any): Observable<any> {
-    const token = this.authService.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    
-    return this._http.post(`${this.apiUrl}/properties`, property, { headers });
+  createProperty(propertyData: FormData): Observable<any> {
+    return this._http.post<any>(`${this.apiUrl}`, propertyData);
   }
+
 
   getPropertyById(id: string): Observable<any> {
     return this._http.get<any>(`${this.apiUrl}/${id}`);
