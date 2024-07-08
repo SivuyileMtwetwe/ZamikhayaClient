@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PropertyService } from '../../Services/Property/property.service';
 import { GetPropertyGeolocationService } from '../../Services/get-property-geolocation.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
 import { Route } from '@angular/router';
 
@@ -18,6 +18,10 @@ export class AddPropertyComponent {
     parking: '',
     rooms: '',
     electricity: '',
+    coordinates: {
+      lat:0,
+      lon:0,
+    },
     bathroom: '',
     price: '',
     description: '',
@@ -27,7 +31,7 @@ export class AddPropertyComponent {
   constructor(
     private propertyService: PropertyService,
     private authService: AuthService,
-    private router: Route,
+    private router: Router,
     private propertyGeolocation:GetPropertyGeolocationService
   ) {}
 
@@ -48,22 +52,31 @@ export class AddPropertyComponent {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.propertyService.createProperty(this.property).subscribe(
-        response => {
-          console.log('Property added successfully:', response);
-          form.reset();
-          this.property.images = [];
-          this.router.navigate(['/homeview']);
-        },
-      );
+      this.GetAccuratePropertyGeolocation(form)
     }
-     this.propertyGeolocation.GetAddressGeolocation("40 Sir Lowry Road, District Six, Cape Town").subscribe((data) => {
+  }
+
+  GetAccuratePropertyGeolocation(form: NgForm){
+    this.propertyGeolocation.GetAddressGeolocation(this.property.location).subscribe((data) => {
       
       if(data){
-        console.log(data.geometry.location.lat)
-        console.log(data.formatted_address)
+        this.property.location = data.formatted_address
+        this.property.location = data.geometry.location
+        // this.uploadProperty(form)
+
+        console.log(this.property)
       }
     })
-    
+  }
+
+  uploadProperty(form: NgForm){
+    this.propertyService.createProperty(this.property).subscribe(
+      response => {
+        console.log('Property added successfully:', response);
+        form.reset();
+        this.property.images = [];
+        this.router.navigate(['/homeview']);
+      },
+    );
   }
 }

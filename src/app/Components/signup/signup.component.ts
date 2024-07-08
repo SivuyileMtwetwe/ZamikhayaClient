@@ -31,7 +31,8 @@ export class SignupComponent {
 
   onSignup(): void {
     if (this.signupForm.valid) {
-      const {data} = this.signupForm.value;
+      const data = this.signupForm.value;
+      console.log(data)
       this.authService.signUp(data).subscribe(
         (        response: User) => {
           console.log('Signup successful', response);
