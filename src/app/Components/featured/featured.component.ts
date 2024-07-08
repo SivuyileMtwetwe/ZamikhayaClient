@@ -18,7 +18,11 @@ export class FeaturedComponent implements OnInit, OnDestroy {
   constructor(private propertyService: PropertyService) {}
 
   ngOnInit(): void {
-    this.fetchProperties();
+
+    setTimeout(()=>{
+      this.fetchProperties();
+    }, 1000)
+    
   }
 
   ngOnDestroy(): void {
@@ -35,6 +39,7 @@ export class FeaturedComponent implements OnInit, OnDestroy {
       next: (properties: any[]) => {
         this.images = properties.map(property => property.images);
         if (typeof document !== 'undefined') {
+
           this.startCarousel();
         }
       },
@@ -69,7 +74,7 @@ export class FeaturedComponent implements OnInit, OnDestroy {
       }
     };
 
-    this.intervalId = window.setInterval(scrollCarousel, 3000);
+    this.intervalId = window.setInterval(scrollCarousel, 2000);
     carouselElement.addEventListener('mouseenter', () => {
       clearInterval(this.intervalId);
     });
