@@ -40,7 +40,7 @@ export class AddPropertyComponent {
         form.reset();
       },
       error: error => {
-       console.error('Error adding property', error);
+       console.error('Error adding property',formData, error);
       }
   });
   }
