@@ -1,59 +1,55 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PropertyService } from '../../Services/Property/property.service';
-import { AuthService } from '../../Services/Auth/auth.service'; 
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-property',
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css']
 })
-export class AddPropertyComponent implements OnInit {
+export class AddPropertyComponent {
   property: any = {
     type: '',
     location: '',
     parking: '',
-    rooms: null,
+    rooms: '',
     electricity: '',
     bathroom: '',
-    price: null,
+    price: '',
     description: '',
     images: []
   };
 
-  constructor(
-    private propertyService: PropertyService,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private propertyService: PropertyService) {}
 
-  ngOnInit() {
-    if (!this.authService.isAuthenticated()) {
-      this.router.navigate(['/login']);
+  onSubmit(form: NgForm) {
+    const formData = new FormData();
+    for (let key in this.property) {
+      if (key !== 'images') {
+        formData.append(key, this.property[key]);
+      }
     }
+    for (let i = 0; i < this.property.images.length; i++) {
+      formData.append('images', this.property.images[i]);
+    }
+
+    this.propertyService.createProperty(formData).subscribe({
+
+      next: response  => {
+        console.log('Property added successfully', response);
+        form.reset();
+      },
+      error: error => {
+       console.error('Error adding property', error);
+      }
+  });
   }
 
   onFileSelected(event: any) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.property.images.push(reader.result);
-    };
-    reader.readAsDataURL(file);
-  }
-
-  onSubmit(form: NgForm) {
-    if (form.valid) {
-      this.propertyService.createProperty(this.property).subscribe(
-        response => {
-          console.log('Property added successfully:', response);
-          form.reset();
-          this.property.images = [];
-          this.router.navigate(['/homeview']);
-        },
-      );
+    if (event.target.files) {
+      for (let file of event.target.files) {
+        this.property.images.push(file);
+      }
     }
   }
 }
