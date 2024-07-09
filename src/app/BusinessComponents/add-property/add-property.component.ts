@@ -117,11 +117,10 @@ export class AddPropertyComponent {
     formData.append("coordinates", JSON.stringify(this.property.coordinates))
     formData.append("bathroom", String(this.property.bathroom))
     formData.append("price", String(this.property.price))
-    formData.append("images", '')
     formData.append("description", this.property.description)
 
     for(let i = 0; i < this.property.images.length; i++){
-      formData.append(`image`, this.property.images[i])
+      formData.append(`images`, this.property.images[i])
     }
      
 
