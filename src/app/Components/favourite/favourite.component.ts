@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./favourite.component.css']
 })
 export class FavouriteComponent implements OnInit {
-  _favList: any[] =[]
+  _favList: any[] = [];
   favCount = 0;
+  location: any;
 
-  constructor(private propertyService: PropertyService,private router: Router) {}
+  constructor(private propertyService: PropertyService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadFavlist();
@@ -19,9 +20,18 @@ export class FavouriteComponent implements OnInit {
 
   loadFavlist(): void {
     this._favList = this.propertyService.getFavlist();
+    this.favCount = this._favList.length;
   }
+
   onSelect(id: string): void {
     this.router.navigate(['/property-details', id]);
   }
 
+  onDelete(id: string): void {
+    this.propertyService.removeFromFavlist(id);
+    this.loadFavlist();
+  }
+  goBack(): void {
+    this.location.back();  
+  }
 }
