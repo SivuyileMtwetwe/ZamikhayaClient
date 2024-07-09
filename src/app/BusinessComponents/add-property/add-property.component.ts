@@ -121,7 +121,7 @@ export class AddPropertyComponent {
     formData.append("description", this.property.description)
 
     for(let i = 0; i < this.property.images.length; i++){
-      formData.append(`image-${i}`, this.property.images[i])
+      formData.append(`images`, this.property.images[i])
     }
      
 
