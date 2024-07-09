@@ -35,8 +35,12 @@ export class PropertyService {
       console.log("Property already exists in favlist!");
     }
   }
-  createProperty(propertyData: FormData): Observable<any> {
-    return this._http.post<any>(`${this.apiUrl}`, propertyData);
+  createProperty(propertyData: any): Observable<any> {
+    const headers = new HttpHeaders()
+    // .append('content-type', 'application/json')
+    .append('Accept', '*/*')
+    console.log(propertyData)
+    return this._http.post<any>(`${this.apiUrl}`, propertyData, {headers});
   }
 
 

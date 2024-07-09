@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -29,16 +30,16 @@ export class SignupComponent implements OnInit {
   onSignup(): void {
     if (this.signupForm.valid) {
       const { name, email, password } = this.signupForm.value;
-      this.authService.signUp(name, email, password).subscribe(
-        (        response: any) => {
-          console.log('Signup successful', response);
+      this.authService.signUp(name, email, password).pipe(finalize(() => {
+        // This will execute after a response is gotten whether an error or success. right place to hide a loader
+      })).subscribe({
+        next: (message) => {
           this.router.navigate(['/signin']);
         },
-        // (        error: { error: { message: string; }; }) => {
-        //   console.error('Signup error', error);
-        //   this.errorMessage = error.error.message || 'An error occurred during signup';
-        // }
-      );
+        error: (error) => {
+          alert(error)
+        }
+      });
     }
   }
 }

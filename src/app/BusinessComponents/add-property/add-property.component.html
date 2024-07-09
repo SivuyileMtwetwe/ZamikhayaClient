@@ -3,70 +3,96 @@
   <h2 class="text-xl font-semibold mb-6 text-gray-600">Become a landlord</h2>
 
   <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="space-y-6">
-    <div class="form-group">
-      <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Type</label>
-      <select [(ngModel)]="property.type" class="select select-bordered w-full mt-1" name="type" required>
-        <option value="Sale">Sale</option>
-        <option value="Rental">Rental</option>
-        <option value="Booking">Booking</option>
-      </select>
+
+    <!-- First UI TO FIND CORRECT ADDRESScFOR PROPERTY -->
+    <div *ngIf="UIPosition == 0">
+      <p class="text-l font-medium mb-6 text-gray-500">Firstly, let's make sure you enter the correct address, our search is powered by google.</p>
+        <div class="form-group">
+              <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+              <input type="text" class="input input-bordered w-full mt-1" id="location" [(ngModel)]="property.location" name="location" placeholder="Enter address" required>
+            </div>
+
+            <div class="form-group">
+              <label for="area" class="block text-sm font-medium text-gray-700 mb-1">Area</label>
+              <input type="text" disabled="true" class="input input-bordered w-full mt-1" id="area" [(ngModel)]="property.area" name="area" placeholder="Enter address">
+            </div>
+            <button type="button" (click)="GetAccuratePropertyGeolocation()" class="btn btn-primary w-full">Search</button>
+            <button type="button" [(disabled)]="foundProperty" (click)="ControlPages('next')" class="btn mt-3 btn-primary w-full">Next (information)</button>
     </div>
 
-    <div class="form-group">
-      <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
-      <input type="text" class="input input-bordered w-full mt-1" id="location" [(ngModel)]="property.location" name="location" placeholder="Enter location" required>
+    <!-- SECOND UI TO ADD PROPERTY METADATA -->
+    <div *ngIf="UIPosition == 1">
+      <p class="text-l font-medium mb-6 text-gray-500">Secondly, let's give potential occupants more information about your property.</p>
+      <div class="form-group">
+        <label for="type" class="block text-sm font-medium text-gray-700 mb-1">Type</label>
+        <select [(ngModel)]="property.type" class="select select-bordered w-full mt-1" name="type" required>
+          <option value="Sale">Sale</option>
+          <option value="Rental">Rental</option>
+          <option value="Booking">Booking</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="parking" class="block text-sm font-medium text-gray-700 mb-1">Parking</label>
+        <select [(ngModel)]="property.parking" class="select select-bordered w-full mt-1" name="parking" required>
+          <option value="indoor">Indoor</option>
+          <option value="outdoor">Outdoor</option>
+          <option value="no parking">No Parking</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="rooms" class="block text-sm font-medium text-gray-700 mb-1">Rooms</label>
+        <input type="number" class="input input-bordered w-full mt-1" id="rooms" [(ngModel)]="property.rooms" name="rooms" placeholder="Number of rooms" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="electricity" class="block text-sm font-medium text-gray-700 mb-1">Electricity</label>
+        <select [(ngModel)]="property.electricity" class="select select-bordered w-full mt-1" name="electricity" required>
+          <option value="Sharing">Sharing</option>
+          <option value="Individual">Individual</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="bathroom" class="block text-sm font-medium text-gray-700 mb-1">Bathroom</label>
+        <select [(ngModel)]="property.bathroom" class="select select-bordered w-full mt-1" name="bathroom">
+          <option value="Sharing">Sharing</option>
+          <option value="Individual">Individual</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Price</label>
+        <input type="number" class="input input-bordered w-full mt-1" id="price" [(ngModel)]="property.price" name="price" placeholder="Price" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+        <textarea id="description" class="textarea textarea-bordered w-full mt-1" [(ngModel)]="property.description" name="description" placeholder="Write description e.g give directions to the place." required></textarea>
+      </div>
+  
+      <button type="button" (click)="ControlPages('next')" class="btn btn-primary w-full">Next (Images)</button>
+      <button type="button" (click)="ControlPages('previous')" class="btn mt-3 btn-primary w-full">previous (Address)</button>
     </div>
 
-    <div class="form-group">
-      <label for="parking" class="block text-sm font-medium text-gray-700 mb-1">Parking</label>
-      <select [(ngModel)]="property.parking" class="select select-bordered w-full mt-1" name="parking" required>
-        <option value="indoor">Indoor</option>
-        <option value="outdoor">Outdoor</option>
-        <option value="no parking">No Parking</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="rooms" class="block text-sm font-medium text-gray-700 mb-1">Rooms</label>
-      <input type="number" class="input input-bordered w-full mt-1" id="rooms" [(ngModel)]="property.rooms" name="rooms" placeholder="Number of rooms" required>
-    </div>
-
-    <div class="form-group">
-      <label for="electricity" class="block text-sm font-medium text-gray-700 mb-1">Electricity</label>
-      <select [(ngModel)]="property.electricity" class="select select-bordered w-full mt-1" name="electricity" required>
-        <option value="Sharing">Sharing</option>
-        <option value="Individual">Individual</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="bathroom" class="block text-sm font-medium text-gray-700 mb-1">Bathroom</label>
-      <select [(ngModel)]="property.bathroom" class="select select-bordered w-full mt-1" name="bathroom">
-        <option value="Sharing">Sharing</option>
-        <option value="Individual">Individual</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Price</label>
-      <input type="number" class="input input-bordered w-full mt-1" id="price" [(ngModel)]="property.price" name="price" placeholder="Price" required>
-    </div>
-
-    <div class="form-group">
-      <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-      <textarea id="description" class="textarea textarea-bordered w-full mt-1" [(ngModel)]="property.description" name="description" placeholder="Write description e.g give directions to the place." required></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="images" class="block text-sm font-medium text-gray-700 mb-1">Add Images</label>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div *ngFor="let i of [0, 1, 2, 3]" class="relative">
-          <input type="file" class="file-input file-input-bordered w-full mt-1" (change)="onFileSelected($event)">
-          <img [src]="property.images[i] ? property.images[i].name : 'assets/OIP (3).jpg'" alt="Property image" class="mt-2 w-full h-32 object-cover">
+    <!-- THIRD UI TO ADD PROPERTY IMAGES -->
+    <div *ngIf="UIPosition == 2">
+      <p class="text-l font-medium mb-6 text-gray-500">lastly, let's show occupants their new place.</p>
+      <div class="form-group">
+        <label for="images" class="block text-sm font-medium text-gray-700 mb-1">Add Images</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div *ngFor="let i of imageCount" class="relative">
+            <input type="file" accept="*"  class="file-input file-input-bordered w-full mt-1" (change)="onFileSelected($event)">
+            <img [src]="images[i] ? images[i] : 'assets/OIP (3).jpg'" alt="Property image" class="mt-2 w-full h-32 object-cover">
+          </div>
+          <button *ngIf="imageCount.length < 5" type="button" (click)="AddImageCount()" class="btn mt-3 btn-success w-half">Add image</button>
         </div>
       </div>
+      <button type="button" (click)="ControlPages('previous')" class="btn btn-primary w-full">Previous (Information)</button>
+      <br>
+      <button *ngIf="imageCount.length" type="submit" class="btn mt-3 btn-success w-full">+ Add Property</button>
     </div>
 
-    <button type="submit" class="btn btn-primary w-full">+ Add Property</button>
   </form>
 </div>

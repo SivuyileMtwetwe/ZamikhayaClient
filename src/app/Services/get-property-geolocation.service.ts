@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 import { BehaviorSubject, Observable } from 'rxjs';
-let AddressData = new BehaviorSubject<any>(null);
+ 
 @Injectable({
   providedIn: 'root'
 })
@@ -14,10 +14,10 @@ export class GetPropertyGeolocationService {
 
    GetAddressGeolocation(address:string):Observable<any>{
     const loader = new Loader({
-      apiKey: "",
+      apiKey: "AIzaSyCplHZjrn_yIDfbzbcKr6oA4LZz-E4FAzA",
       version: "weekly",
     });
-
+const AddressData = new BehaviorSubject<any>(null);
       loader.load().then(async () => {
 
       const { Geocoder } = await google.maps.importLibrary("geocoding") as google.maps.GeocodingLibrary;
@@ -25,13 +25,13 @@ export class GetPropertyGeolocationService {
 
             await this.geocode.geocode( { 'address': address}, function(results:any, status:any) {
               if (status == 'OK') {
-                  console.log(results[0].formatted_address)
-                   console.log(results[0].geometry.location)
+                  // console.log(results[0].formatted_address)
+                  //  console.log(results[0].geometry.location)
                    AddressData.next(results[0]);
                 
                 
               } else {
-                alert('Geocode was not successful for the following reason: ' + status);
+                alert('Unsuccessful for the following reason: ' + status);
               }
             });
       // this.mapInit.mInitMap(mapLoad)
