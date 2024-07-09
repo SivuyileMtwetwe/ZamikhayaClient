@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class FavouriteComponent implements OnInit {
   _favList: any[] = [];
   favCount = 0;
+  location: any;
 
   constructor(private propertyService: PropertyService, private router: Router) {}
 
@@ -29,5 +30,8 @@ export class FavouriteComponent implements OnInit {
   onDelete(id: string): void {
     this.propertyService.removeFromFavlist(id);
     this.loadFavlist();
+  }
+  goBack(): void {
+    this.location.back();  
   }
 }
