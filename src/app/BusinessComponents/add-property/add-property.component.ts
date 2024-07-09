@@ -121,7 +121,7 @@ export class AddPropertyComponent {
     formData.append("description", this.property.description)
 
     for(let i = 0; i < this.property.images.length; i++){
-      formData.append(`images`, this.property.images[i])
+      formData.append(`image`, this.property.images[i])
     }
      
 
@@ -130,9 +130,9 @@ export class AddPropertyComponent {
     })).subscribe({
       next: (message) => {
         console.log('Property added successfully:');
-        // form.reset();
+        form.reset();
         // this.property.images = [];
-        // this.router.navigate(['/homeview']);
+        this.router.navigate(['/homeview']);
       },
       error: (error) => {
         alert(error)
