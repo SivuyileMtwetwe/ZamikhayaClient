@@ -129,9 +129,9 @@ export class AddPropertyComponent {
     })).subscribe({
       next: (message) => {
         console.log('Property added successfully:');
-        // form.reset();
-        // this.property.images = [];
-        // this.router.navigate(['/homeview']);
+        form.reset();
+        this.property.images = [];
+        this.router.navigate(['/homeview']);
       },
       error: (error) => {
         alert(error)
