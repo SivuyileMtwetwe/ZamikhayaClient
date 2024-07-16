@@ -30,8 +30,8 @@ export class AuthService {
     );
   }
 
-  signUp(data: Signup): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, {data});
+  signUp(name:string, email:string,password:string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register`, {name,password,email});
   }
 
   checkUserExists(email: string): Observable<boolean> {

@@ -3,23 +3,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthService } from '../Auth/auth.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class PropertyService {
   
-   apiUrl = 'http://localhost:5007/zam/properties';
+  apiUrl = 'http://localhost:5007/zam/properties';
     
-   favCount = new BehaviorSubject<number>(0);
-   favList: any[] =[];
+  favCount = new BehaviorSubject<number>(0);
+  favList: any[] = [];
   
-
-
   constructor(private _http: HttpClient, private authService: AuthService) { }
 
-  getAllProperties():Observable<any[]> {
-    return this._http.get<any[]>(this.apiUrl)
+  getAllProperties(): Observable<any[]> {
+    return this._http.get<any[]>(this.apiUrl);
   }
 
   getFavlist = (): any[] => this.favList;
@@ -28,19 +25,22 @@ export class PropertyService {
     const alreadyInfavlist = this.favList.some(({ id }) => id === property.id);
     if (!alreadyInfavlist) {
       this.favList.push(property);
-      
       this.favCount.next(this.favCount.value + 1);
-      
     } else {
       console.log("Property already exists in favlist!");
     }
   }
- 
-  createProperty(property: any): Observable<any> {
-    const token = this.authService.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    
-    return this._http.post(`${this.apiUrl}/properties`, property, { headers });
+
+  removeFromFavlist = (id: string): void => {
+    this.favList = this.favList.filter(property => property.id !== id);
+    this.favCount.next(this.favList.length);
+  }
+
+  createProperty(propertyData: any): Observable<any> {
+    const headers = new HttpHeaders()
+      .append('Accept', '*/*');
+    console.log(propertyData);
+    return this._http.post<any>(`${this.apiUrl}`, propertyData, { headers });
   }
 
   getPropertyById(id: string): Observable<any> {

@@ -1,26 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
-import { SharedService } from '../../Services/Shared/shared.service';
-import { User } from '../../Interfaces/user';
-import { Signup } from '../../Interfaces/signup';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   errorMessage: string = '';
-  data!: Signup;
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router,
-    private sharedService: SharedService
+    private router: Router
   ) {
     this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -29,16 +25,21 @@ export class SignupComponent {
     });
   }
 
+  ngOnInit(): void {}
+
   onSignup(): void {
     if (this.signupForm.valid) {
-      const {data} = this.signupForm.value;
-      this.authService.signUp(data).subscribe(
-        (        response: User) => {
-          console.log('Signup successful', response);
-          this.sharedService.setShowTerms(true);
-          this.router.navigate(['/terms-and-conditions']);
+      const { name, email, password } = this.signupForm.value;
+      this.authService.signUp(name, email, password).pipe(finalize(() => {
+        // This will execute after a response is gotten whether an error or success. right place to hide a loader
+      })).subscribe({
+        next: (message) => {
+          this.router.navigate(['/signin']);
         },
-      );
+        error: (error) => {
+          alert(error)
+        }
+      });
     }
   }
 }
