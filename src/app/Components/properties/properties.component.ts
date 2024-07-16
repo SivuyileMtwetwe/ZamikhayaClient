@@ -40,7 +40,7 @@ export class PropertiesComponent implements OnInit {
   }
 
   extractLocations(): void {
-    const allLocations = this.properties.map(property => property.location);
+    const allLocations = this.properties.map(property => property.area);
     this.locations = Array.from(new Set(allLocations)).sort();
     this.locations.unshift('All Locations');
     this.filteredLocations = this.locations;
@@ -50,7 +50,7 @@ export class PropertiesComponent implements OnInit {
     if (selectedLocation === 'All Locations') {
       this.filteredItems = this.properties;
     } else {
-      this.filteredItems = this.properties.filter(property => property.location === selectedLocation);
+      this.filteredItems = this.properties.filter(property => property.area === selectedLocation);
     }
   }
 
