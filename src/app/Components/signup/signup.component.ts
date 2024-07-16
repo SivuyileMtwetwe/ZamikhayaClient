@@ -12,6 +12,7 @@ import { finalize } from 'rxjs';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   errorMessage: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,15 +30,25 @@ export class SignupComponent implements OnInit {
 
   onSignup(): void {
     if (this.signupForm.valid) {
+      this.isLoading = true;
+      this.errorMessage = '';
       const { name, email, password } = this.signupForm.value;
-      this.authService.signUp(name, email, password).pipe(finalize(() => {
-        // This will execute after a response is gotten whether an error or success. right place to hide a loader
-      })).subscribe({
-        next: (message) => {
+      this.authService.signUp(name, email, password).pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      ).subscribe({
+        next: (response) => {
+          console.log('Registration successful', response);
           this.router.navigate(['/signin']);
         },
         error: (error) => {
-          alert(error)
+          console.error('Registration error', error);
+          if (error.error && error.error.message) {
+            this.errorMessage = error.error.message;
+          } else {
+            this.errorMessage = 'An unexpected error occurred. Please try again.';
+          }
         }
       });
     }
