@@ -12,7 +12,7 @@ export class TermsAndConditionsComponent implements OnInit, OnDestroy {
   showModal: boolean = false;
   subscription!: Subscription;
 
-  constructor(private router: Router, private sharedService: SharedService,  ) {}
+  constructor(private router: Router, private sharedService: SharedService) {}
 
   ngOnInit() {
     this.subscription = this.sharedService.showTerms$.subscribe(
@@ -28,22 +28,18 @@ export class TermsAndConditionsComponent implements OnInit, OnDestroy {
     }
   }
 
-  openModal() {
-    this.showModal = true;
-  }
-
   closeModal() {
     this.showModal = false;
     this.sharedService.setShowTerms(false);
   }
 
   onAccept() {
+    this.sharedService.setTermsAccepted(true);
     this.closeModal();
-    this.router.navigate(['/signin']);
   }
 
   onDecline() {
+    this.sharedService.setTermsAccepted(false);
     this.closeModal();
-    this.router.navigate(['/']);
   }
 }

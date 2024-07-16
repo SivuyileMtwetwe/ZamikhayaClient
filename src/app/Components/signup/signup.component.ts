@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
+import { SharedService } from '../../Services/Shared/shared.service';
 import { finalize } from 'rxjs';
 
 @Component({
@@ -17,7 +18,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) {
     this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -30,27 +32,42 @@ export class SignupComponent implements OnInit {
 
   onSignup(): void {
     if (this.signupForm.valid) {
-      this.isLoading = true;
-      this.errorMessage = '';
-      const { name, email, password } = this.signupForm.value;
-      this.authService.signUp(name, email, password).pipe(
-        finalize(() => {
-          this.isLoading = false;
-        })
-      ).subscribe({
-        next: (response) => {
-          console.log('Registration successful', response);
-          this.router.navigate(['/signin']);
-        },
-        error: (error) => {
-          console.error('Registration error', error);
-          if (error.error && error.error.message) {
-            this.errorMessage = error.error.message;
-          } else {
-            this.errorMessage = 'An unexpected error occurred. Please try again.';
-          }
+      // Instead of immediately signing up, show the terms and conditions
+      this.sharedService.setShowTerms(true);
+
+      // Subscribe to the termsAccepted$ observable
+      this.sharedService.termsAccepted$.subscribe((accepted) => {
+        if (accepted) {
+          this.proceedWithSignup();
+        } else {
+          // Terms were declined, reset the form or handle as needed
+          this.signupForm.reset();
         }
       });
     }
+  }
+
+  private proceedWithSignup(): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+    const { name, email, password } = this.signupForm.value;
+    this.authService.signUp(name, email, password).pipe(
+      finalize(() => {
+        this.isLoading = false;
+      })
+    ).subscribe({
+      next: (response) => {
+        console.log('Registration successful', response);
+        this.router.navigate(['/signin']);
+      },
+      error: (error) => {
+        console.error('Registration error', error);
+        if (error.error && error.error.message) {
+          this.errorMessage = error.error.message;
+        } else {
+          this.errorMessage = 'An unexpected error occurred. Please try again.';
+        }
+      }
+    });
   }
 }
