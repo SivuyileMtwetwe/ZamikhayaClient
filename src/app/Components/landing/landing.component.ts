@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
@@ -8,19 +9,24 @@ import { AuthService } from '../../Services/Auth/auth.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  constructor(private router: Router,private auth :AuthService
+  constructor(private router: Router, private auth: AuthService) { }
 
-  ) { }
-
-  ngOnInit():void {
-    this.logout()
+  ngOnInit(): void {
+    this.logout();
   }
- 
 
-  logout(): void{
-    this.auth.logout()
-  }
+  isLoading = false;
+
   navigateToWelcome() {
-    this.router.navigate(['/intro']);
+    this.isLoading = true;
+    setTimeout(() => {
+      this.router.navigate(['/intro']);
+
+      this.isLoading = false;
+    }, 5000); 
+  }
+
+  logout(): void {
+    this.auth.logout();
   }
 }

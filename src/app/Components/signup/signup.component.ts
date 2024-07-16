@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
 import { SharedService } from '../../Services/Shared/shared.service';
 import { finalize } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -32,15 +33,12 @@ export class SignupComponent implements OnInit {
 
   onSignup(): void {
     if (this.signupForm.valid) {
-      // Instead of immediately signing up, show the terms and conditions
       this.sharedService.setShowTerms(true);
 
-      // Subscribe to the termsAccepted$ observable
       this.sharedService.termsAccepted$.subscribe((accepted) => {
         if (accepted) {
           this.proceedWithSignup();
         } else {
-          // Terms were declined, reset the form or handle as needed
           this.signupForm.reset();
         }
       });
@@ -58,6 +56,7 @@ export class SignupComponent implements OnInit {
     ).subscribe({
       next: (response) => {
         console.log('Registration successful', response);
+        this.showSuccessAlert();
         this.router.navigate(['/signin']);
       },
       error: (error) => {
@@ -68,6 +67,25 @@ export class SignupComponent implements OnInit {
           this.errorMessage = 'An unexpected error occurred. Please try again.';
         }
       }
+    });
+  }
+
+  private showSuccessAlert(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: "Signed up successfully"
     });
   }
 }

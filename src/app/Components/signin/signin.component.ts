@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
 import { User } from '../../Interfaces/user';
 import { Signin } from '../../Interfaces/signin';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signin',
@@ -42,9 +43,29 @@ export class SigninComponent implements OnInit {
 
         next: (        response: User) => {
           console.log('Signin successful', response);
+          this.showSuccessAlert();
           this.router.navigate(['/homepage']);
         },
     });
     }
+  }
+
+  private showSuccessAlert(): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: "Signed in successfully"
+    });
   }
 }
