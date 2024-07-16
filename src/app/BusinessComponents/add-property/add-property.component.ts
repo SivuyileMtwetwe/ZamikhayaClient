@@ -87,7 +87,7 @@ export class AddPropertyComponent {
           if(data){
             this.property.location = data.formatted_address
             this.property.coordinates = data.geometry.location
-            this.property.area = data.address_components[2].long_name
+            this.property.area = data.formatted_address.split(',')[1]
     
             // setTimeout(()=>{
               this.foundProperty = false
@@ -117,11 +117,10 @@ export class AddPropertyComponent {
     formData.append("coordinates", JSON.stringify(this.property.coordinates))
     formData.append("bathroom", String(this.property.bathroom))
     formData.append("price", String(this.property.price))
-    formData.append("images", '')
     formData.append("description", this.property.description)
 
     for(let i = 0; i < this.property.images.length; i++){
-      formData.append(`image`, this.property.images[i])
+      formData.append(`images`, this.property.images[i])
     }
      
     this.propertyService.createProperty(formData).pipe(finalize(() => {
