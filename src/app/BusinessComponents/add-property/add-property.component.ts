@@ -123,14 +123,13 @@ export class AddPropertyComponent {
       formData.append(`images`, this.property.images[i])
     }
      
-
     this.propertyService.createProperty(formData).pipe(finalize(() => {
       // This will execute after a response is gotten whether an error or success. right place to hide a loader
     })).subscribe({
       next: (message) => {
         console.log('Property added successfully:');
         form.reset();
-        // this.property.images = [];
+        this.property.images = [];
         this.router.navigate(['/homeview']);
       },
       error: (error) => {
