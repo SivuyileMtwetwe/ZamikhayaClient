@@ -130,7 +130,7 @@ export class AddPropertyComponent {
         console.log('Property added successfully:');
         form.reset();
         this.property.images = [];
-        this.router.navigate(['/homeview']);
+        this.router.navigate(['/dashboard']);
       },
       error: (error) => {
         alert(error)
