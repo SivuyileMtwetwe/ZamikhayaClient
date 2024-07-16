@@ -1,13 +1,14 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../Services/Auth/auth.service';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css']
 })
-export class IntroComponent {
+export class IntroComponent implements OnInit {
   currentSlide: number = 0;
 
   slides = [
@@ -31,7 +32,7 @@ export class IntroComponent {
     }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private authService: AuthService) {}
 
   skipIntro() {
     this.router.navigate(['/signin']);
@@ -43,5 +44,13 @@ export class IntroComponent {
     } else {
       this.router.navigate(['/signin']);
     }
+  }
+  ngOnInit():void {
+    this.logout()
+  }
+ 
+
+  logout(): void{
+    this.authService.logout()
   }
 }

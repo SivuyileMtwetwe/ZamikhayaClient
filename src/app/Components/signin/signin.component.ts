@@ -26,7 +26,14 @@ export class SigninComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit():void {
+    this.logout()
+  }
+ 
+
+  logout(): void{
+    this.authService.logout()
+  }
 
   onSignin(data:Signin): void {
     if (this.signinForm.valid) {
