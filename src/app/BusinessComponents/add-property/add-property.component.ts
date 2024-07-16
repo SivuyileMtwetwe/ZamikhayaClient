@@ -87,7 +87,7 @@ export class AddPropertyComponent {
           if(data){
             this.property.location = data.formatted_address
             this.property.coordinates = data.geometry.location
-            this.property.area = data.address_components[2].long_name
+            this.property.area = data.formatted_address.split(',')[1]
     
             // setTimeout(()=>{
               this.foundProperty = false
