@@ -39,7 +39,8 @@ import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component
 import { TermsAndConditionsComponent } from './Components/terms-and-conditions/terms-and-conditions.component';
 import { SelectRoleComponent } from './Components/select-role/select-role.component';
 import { BusinessNavComponent } from './BusinessComponents/business-nav/business-nav.component';
-
+import { LoaderComponent } from './Components/loader/loader.component';
+import { LoadingService } from './Services/Loading/loading.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { BusinessNavComponent } from './BusinessComponents/business-nav/business
     TermsAndConditionsComponent,
     SelectRoleComponent,
     BottomNavComponent,
-    BusinessNavComponent
+    BusinessNavComponent,
+    LoaderComponent
   
    
   ],
@@ -87,7 +89,7 @@ import { BusinessNavComponent } from './BusinessComponents/business-nav/business
     GoogleMapsModule
   ],
   
-  providers: [],
+  providers: [LoadingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
