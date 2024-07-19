@@ -5,7 +5,7 @@
   
   <div *ngIf="property" class="grid gap-2">
     <div class="relative">
-      <img class="p-2 h-42 max-w-full rounded-lg" [src]="property.images[selectedImageIndex]" alt="Property Image">
+      <img class="p-2 h-64 max-w-full rounded-lg" [src]="property.images[selectedImageIndex]" alt="Property Image">
       <button (click)="scrollImages('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">
         &lt;
       </button>
@@ -18,7 +18,7 @@
         <img 
           class="h-20 max-w-full rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
           [class.border-2]="i === selectedImageIndex"
-          [class.border-blue-500]="i === selectedImageIndex"
+          [class.border-blue-600]="i === selectedImageIndex"
           [src]="image" 
           alt="Property Image"
           (click)="selectImage(i)"
