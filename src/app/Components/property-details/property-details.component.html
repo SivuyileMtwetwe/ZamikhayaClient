@@ -2,23 +2,26 @@
 <div *ngIf="property ">
 <div class="w-full max-w-sm bg-white border-r-8 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
   <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="goBack()"><i class="fa-solid fa-circle-xmark"></i></a>
-  
-  <div *ngIf="property" class="grid gap-2">
-    <div class="relative">
-      <img class="p-2 h-64 max-w-full rounded-lg" [src]="property.images[selectedImageIndex]" alt="Property Image">
-      <button (click)="scrollImages('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">
+  <div *ngIf="property" class="grid gap-2 max-w-3xl mx-auto">
+    <div class="relative aspect-[4/3] overflow-hidden">
+      <img 
+        class="w-full h-full object-cover rounded-lg"
+        [src]="property.images[selectedImageIndex]" 
+        alt="Property Image"
+      >
+      <button (click)="scrollImages('left')" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
         &lt;
       </button>
-      <button (click)="scrollImages('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r">
+      <button (click)="scrollImages('right')" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">
         &gt;
       </button>
     </div>
-    <div class="grid grid-cols-4 gap-2 px-3 pb-3">
-      <div *ngFor="let image of property.images; let i = index">
+    <div class="grid grid-cols-4 gap-2">
+      <div *ngFor="let image of property.images; let i = index" class="aspect-square overflow-hidden">
         <img 
-          class="h-20 max-w-full rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
-          [class.border-2]="i === selectedImageIndex"
-          [class.border-blue-600]="i === selectedImageIndex"
+          class="w-full h-full object-cover rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
+          [class.border-4]="i === selectedImageIndex"
+          [class.border-blue-500]="i === selectedImageIndex"
           [src]="image" 
           alt="Property Image"
           (click)="selectImage(i)"
