@@ -41,6 +41,7 @@ import { SelectRoleComponent } from './Components/select-role/select-role.compon
 import { BusinessNavComponent } from './BusinessComponents/business-nav/business-nav.component';
 import { LoaderComponent } from './Components/loader/loader.component';
 import { LoadingService } from './Services/Loading/loading.service';
+import { BusNavComponent } from './BusinessComponents/bus-nav/bus-nav.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { LoadingService } from './Services/Loading/loading.service';
     SelectRoleComponent,
     BottomNavComponent,
     BusinessNavComponent,
-    LoaderComponent
+    LoaderComponent,
+    BusNavComponent
   
    
   ],

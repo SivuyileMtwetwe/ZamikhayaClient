@@ -3,21 +3,23 @@ import { Router } from '@angular/router';
 import { UserService } from '../../Services/User/user.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  selector: 'app-bus-nav',
+  templateUrl: './bus-nav.component.html',
+  styleUrl: './bus-nav.component.css'
 })
-export class DashboardComponent {
+export class BusNavComponent {
+
 
   constructor (
     private userService: UserService,
     private router: Router
   ) {}
 
+
+
   signOut() {
     console.log('User signed out');
     this.router.navigate(['/signin']);
   }
 
-  
 }

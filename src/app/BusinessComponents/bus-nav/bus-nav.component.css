@@ -1,0 +1,39 @@
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    width: auto;
+  }
+  
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .profile-container {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
+
+  #logoBtn{
+    width: 70px;
+    height: 70px;
+  }
