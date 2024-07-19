@@ -2,28 +2,30 @@
 <div *ngIf="property ">
 <div class="w-full max-w-sm bg-white border-r-8 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
   <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="goBack()"><i class="fa-solid fa-circle-xmark"></i></a>
-<div class="grid gap-2">
-  <div>
-      <img class="p-2  h-auto max-w-full rounded-lg" [src]="property.images[0]" alt="Property Image" alt="">
+  
+  <div *ngIf="property" class="grid gap-2">
+    <div class="relative">
+      <img class="p-2 h-42 max-w-full rounded-lg" [src]="property.images[selectedImageIndex]" alt="Property Image">
+      <button (click)="scrollImages('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l">
+        &lt;
+      </button>
+      <button (click)="scrollImages('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r">
+        &gt;
+      </button>
+    </div>
+    <div class="grid grid-cols-4 gap-2 px-3 pb-3">
+      <div *ngFor="let image of property.images; let i = index">
+        <img 
+          class="h-20 max-w-full rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
+          [class.border-2]="i === selectedImageIndex"
+          [class.border-blue-500]="i === selectedImageIndex"
+          [src]="image" 
+          alt="Property Image"
+          (click)="selectImage(i)"
+        >
+      </div>
+    </div>
   </div>
-  <div class="grid grid-cols-4 gap-2 px-3 pb-3">
-    <div>
-        <img class="h-20 max-w-full rounded-lg" [src]="property.images[1]" alt="">
-    </div>
-    <div>
-        <img class="h-20 max-w-full rounded-lg" [src]="property.images[2]" alt="">
-    </div>
-    <div>
-        <img class="h-20 max-w-full rounded-lg" [src]="property.images[3]" alt="">
-
-    </div>
-    <div>
-      <img class="h-20 max-w-full rounded-lg" [src]="property.images[4]" alt="">
-    </div>
-
-</div>
-</div>
-
 <div class="px-5 pb-5">
   <div class="flex justify-between">
     <h5 class="mb-2 text-sm font-bold leading-tight text-neutral-800 dark:text-neutral-50">
