@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertyService } from '../../Services/Property/property.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-favourite',
@@ -10,9 +11,9 @@ import { Router } from '@angular/router';
 export class FavouriteComponent implements OnInit {
   _favList: any[] = [];
   favCount = 0;
-  location: any;
+  
 
-  constructor(private propertyService: PropertyService, private router: Router) {}
+  constructor(private propertyService: PropertyService, private router: Router,private _location: Location,) {}
 
   ngOnInit(): void {
     this.loadFavlist();
@@ -32,6 +33,6 @@ export class FavouriteComponent implements OnInit {
     this.loadFavlist();
   }
   goBack(): void {
-    this.location.back();  
+    this._location.back();  
   }
 }
