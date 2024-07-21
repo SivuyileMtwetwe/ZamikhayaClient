@@ -1,10 +1,11 @@
 <div class="filter relative">
-  <div>
+  <!-- Location Search Input -->
+  <div class="mb-4">
     <label for="location_search" class="sr-only">Search or select a location</label>
     <input
       id="location_search"
       type="text"
-      class="block w-full py-2.5 px-4 text-sm text-gray-500 bg-transparent border border-gray-200 rounded-md focus:outline-none focus:ring-0 focus:border-gray-400 dark:text-gray-400 dark:border-gray-700 dark:focus:border-gray-500 peer"
+      class="block w-full py-2.5 px-4 text-sm text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-gray-300 dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500 peer"
       placeholder="Search or choose a location"
       [(ngModel)]="searchQuery"
       (input)="filterLocations()"
@@ -13,8 +14,10 @@
       (keydown)="onKeydown($event)"
     />
   </div>
+
+  <!-- Location Dropdown List -->
   <div
-    class="absolute left-0 w-full bg-white border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:shadow-lg rounded-lg mt-1 z-10"
+    class="absolute left-0 w-full bg-white border border-gray-300 shadow-md dark:bg-gray-800 dark:border-gray-700 dark:shadow-lg rounded-lg mt-1 z-10"
     *ngIf="showDropdown && filteredLocations.length > 0"
   >
     <ul class="max-h-60 overflow-y-auto">
@@ -30,11 +33,25 @@
   </div>
 </div>
 
+<!-- Property Type Dropdown -->
+<div class="relative mt-4">
+  <label for="property_type" class="sr-only">Select a property type</label>
+  <select
+    id="property_type"
+    class="block w-full py-2.5 px-4 text-sm text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-gray-300 dark:bg-gray-900 dark:border-gray-700 dark:focus:ring-blue-500 dark:focus:border-blue-500 peer"
+    [(ngModel)]="selectedType"
+    (change)="filterByType(selectedType)"
+  >
+    <option *ngFor="let type of propertyTypes" [value]="type">{{ type }}</option>
+  </select>
+</div>
+
+
 <div
 class=" flex-col p-6  min-w-screen h-auto animated fadeIn faster  left-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none" *ngFor="let property of filteredItems"  (click)="onSelect(property.id)">
 <div class="block rounded-lg bg-white w-72">
 <div class="relative overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init data-te-ripple-color="light">
-  <img class="rounded-lg  sm:m-h-64 md:h-64 w-full" [src]="property.images[0]" alt="" />
+<img class="rounded-lg w-full h-48 sm:h-56 md:h-64 object-cover" [src]="property.images[0]" alt="" />
   <a (click)="onSelect(property.id)">
     <div
       class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">

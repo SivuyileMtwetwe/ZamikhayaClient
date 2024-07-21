@@ -11,8 +11,10 @@ import { Property } from '../../Interfaces/property';
 export class PropertiesComponent implements OnInit {
   isLiked = false;
   selectedLocation: string = 'All Locations';
+  selectedType: string = 'All Types';
   locations: string[] = [];
-  filteredItems: any[] = [];
+  propertyTypes: string[] = ['All Types'];
+  filteredItems: Property[] = [];
   properties: Property[] = [];
 
   searchQuery: string = '';
@@ -35,6 +37,7 @@ export class PropertiesComponent implements OnInit {
         this.properties = res;
         this.filteredItems = res;
         this.extractLocations();
+        this.extractPropertyTypes();
       },
     });
   }
@@ -46,12 +49,27 @@ export class PropertiesComponent implements OnInit {
     this.filteredLocations = this.locations;
   }
 
+  extractPropertyTypes(): void {
+    const allTypes = this.properties.map(property => property.type);
+    this.propertyTypes = Array.from(new Set(allTypes)).sort();
+    this.propertyTypes.unshift('All Types');
+  }
+
   filterByLocation(selectedLocation: string): void {
-    if (selectedLocation === 'All Locations') {
-      this.filteredItems = this.properties;
-    } else {
-      this.filteredItems = this.properties.filter(property => property.area === selectedLocation);
-    }
+    this.selectedLocation = selectedLocation;
+    this.filterItems();
+  }
+
+  filterByType(selectedType: string): void {
+    this.selectedType = selectedType;
+    this.filterItems();
+  }
+
+  filterItems(): void {
+    this.filteredItems = this.properties.filter(property => {
+      return (this.selectedLocation === 'All Locations' || property.area === this.selectedLocation) &&
+             (this.selectedType === 'All Types' || property.type === this.selectedType);
+    });
   }
 
   filterLocations(): void {

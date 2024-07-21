@@ -11,4 +11,5 @@ export interface Property {
     description: string;
     images: string[];
     landlord: string;
+    timestamps: string
 }
