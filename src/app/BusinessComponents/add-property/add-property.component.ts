@@ -4,9 +4,8 @@ import { PropertyService } from '../../Services/Property/property.service';
 import { GetPropertyGeolocationService } from '../../Services/get-property-geolocation.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/Auth/auth.service';
-import { Route } from '@angular/router';
 import { finalize } from 'rxjs';
-import { Console } from 'console';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-property',
@@ -20,10 +19,10 @@ export class AddPropertyComponent {
     parking: '',
     rooms: '',
     electricity: '',
-    area:'',
+    area: '',
     coordinates: {
-      lat:0,
-      lng:0,
+      lat: 0,
+      lng: 0,
     },
     bathroom: '',
     price: '',
@@ -31,17 +30,16 @@ export class AddPropertyComponent {
     images: []
   };
 
-  foundProperty:boolean = true
-
-  UIPosition:number = 0;
-
-  imageCount:number[] = [];
+  foundProperty: boolean = true;
+  UIPosition: number = 0;
+  imageCount: number[] = [];
+  images: any = [];
 
   constructor(
     private propertyService: PropertyService,
     private authService: AuthService,
     private router: Router,
-    private propertyGeolocation:GetPropertyGeolocationService
+    private propertyGeolocation: GetPropertyGeolocationService
   ) {}
 
   ngOnInit() {
@@ -50,105 +48,117 @@ export class AddPropertyComponent {
     }
   }
 
-  images:any = [];
-
   onFileSelected(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
 
-  
-
-    this.property.images.push(event.target.files[0])
+    this.property.images.push(event.target.files[0]);
     
-    reader.onload = async (event:any) => {
+    reader.onload = (event: any) => {
       this.images.push(event.target.result);
     };
 
     reader.readAsDataURL(file);
-
   }
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.uploadProperty(form)
+      this.uploadProperty(form);
     }
-    // alert("yess")
   }
 
-  GetAccuratePropertyGeolocation(){
-    
-      
-    if(this.property.location.trim()){
+  GetAccuratePropertyGeolocation() {
+    if (this.property.location.trim()) {
       this.propertyGeolocation.GetAddressGeolocation(this.property.location)
-      .pipe(finalize(() => {
-        // This will execute after a response is gotten whether an error or success. right place to hide a loader
-      })).subscribe({
-        next: (data) => {
-          if(data){
-            this.property.location = data.formatted_address
-            this.property.coordinates = data.geometry.location
-            this.property.area = data.formatted_address.split(',')[1]
-    
-            // setTimeout(()=>{
-              this.foundProperty = false
-            // }, 2000)
-            
+        .pipe(finalize(() => {
+          // Hide loader if any
+        })).subscribe({
+          next: (data) => {
+            if (data) {
+              this.property.location = data.formatted_address;
+              this.property.coordinates = data.geometry.location;
+              this.property.area = data.formatted_address.split(',')[1];
+              this.foundProperty = false;
+            }
+          },
+          error: (error) => {
+            this.showErrorAlert("We've encountered an error: " + error);
+            console.error(error);
           }
-        },
-        error: (error) => {
-          alert("We've encounter an error: " + error)
-          console.error(error)
-        }
-      });
-      
+        });
     }
-    
   }
 
-  uploadProperty(form: NgForm){
-  
+  uploadProperty(form: NgForm) {
     const formData = new FormData();
-    formData.append("type", this.property.type)
-    formData.append("location", this.property.location)
-    formData.append("parking", this.property.parking)
-    formData.append("rooms", String(this.property.rooms))
-    formData.append("electricity", String(this.property.electricity))
-    formData.append("area", this.property.area)
-    formData.append("coordinates", JSON.stringify(this.property.coordinates))
-    formData.append("bathroom", String(this.property.bathroom))
-    formData.append("price", String(this.property.price))
-    formData.append("description", this.property.description)
+    formData.append("type", this.property.type);
+    formData.append("location", this.property.location);
+    formData.append("parking", this.property.parking);
+    formData.append("rooms", String(this.property.rooms));
+    formData.append("electricity", String(this.property.electricity));
+    formData.append("area", this.property.area);
+    formData.append("coordinates", JSON.stringify(this.property.coordinates));
+    formData.append("bathroom", String(this.property.bathroom));
+    formData.append("price", String(this.property.price));
+    formData.append("description", this.property.description);
 
-    for(let i = 0; i < this.property.images.length; i++){
-      formData.append(`images`, this.property.images[i])
+    for (let i = 0; i < this.property.images.length; i++) {
+      formData.append(`images`, this.property.images[i]);
     }
      
     this.propertyService.createProperty(formData).pipe(finalize(() => {
-      // This will execute after a response is gotten whether an error or success. right place to hide a loader
+      // Hide loader if any
     })).subscribe({
       next: (message) => {
-        console.log('Property added successfully:');
+        this.showSuccessAlert('Property added successfully');
         form.reset();
         this.property.images = [];
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {
-        alert(error)
+        this.showErrorAlert(error);
       }
     });
   }
 
-  ControlPages(MoveTo:string){
-    if(MoveTo == "next"){
-      this.UIPosition +=1;
+  ControlPages(MoveTo: string) {
+    if (MoveTo == "next") {
+      this.UIPosition += 1;
+    } else {
+      this.UIPosition -= 1;
     }
-    else{
-      this.UIPosition -=1;
-    }
-    
   }
 
-  AddImageCount(){
-    this.imageCount.push((this.imageCount.length -1) + 1)
+  AddImageCount() {
+    this.imageCount.push(this.imageCount.length);
+  }
+
+  private showSuccessAlert(message: string): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: message
+    });
+  }
+
+  private showErrorAlert(message: string): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: message,
+      timer: 4000,
+      timerProgressBar: true
+    });
   }
 }

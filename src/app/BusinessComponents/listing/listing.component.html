@@ -14,7 +14,7 @@
                         <label class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
                          <div class="block" (click)="onSelect(property.id)">
                              <div class="w-full text-lg font-semibold">
-                            <img class="w-20 h-20 rounded" [src]="property.images" alt="Large avatar">
+                            <img class="w-20 h-20 rounded" [src]="property.images[0]" alt="Large avatar">
                               </div>
                             <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">{{ property.type }}</span>
                               </div>

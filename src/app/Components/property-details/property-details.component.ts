@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PropertyService } from '../../Services/Property/property.service';
 import { Location } from '@angular/common';
 import { Property } from '../../Interfaces/property';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-property-detail',
@@ -15,20 +16,39 @@ export class PropertyDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
-    private _location: Location,
+    private _location: Location
   ) { }
 
   ngOnInit(): void {
-    this.viewProperty()
+    this.viewProperty();
   }
 
   addToFavList(property: Property): void {
-    this.propertyService.addToFavlist(property)
-    console.log("Added to faves")
+    this.propertyService.addToFavlist(property);
+    this.showSuccessAlert('Added to favorites!');
   }
 
-  goBack() {
-    this._location.back()
+  private showSuccessAlert(message: string): void {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: message
+    });
+  }
+
+  goBack(): void {
+    this._location.back();
   }
 
   viewProperty(): void {
